@@ -1,0 +1,46 @@
+import React , {Component} from 'react'
+import {Link} from  'react-router-dom'
+
+class cooking extends Component{
+    render(){
+        return(
+            <div className="container-fluid bg-white">
+
+                <center>
+<Link className="text-dark m-1 p-1" to={'/createCook'}>+ Add Meal</Link></center>
+
+
+<div className="row">
+
+<div className="col-md-6 mx-auto">
+    
+<center>
+<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/cookingExplore'}>Explore</Link>
+
+<Link className="text-dark p-1 m-1 btn border border-danger" to={'/cookingNotification'}>Notifications</Link>
+
+</center>
+
+
+    </div>
+
+
+
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+            </div>
+        )
+    }
+}
+
+export default cooking
