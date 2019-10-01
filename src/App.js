@@ -89,8 +89,12 @@ class App extends Component{
  
 <div className="col-md-10 col-10 m-2 p-1 mx-auto">
 
-<h5 style={{ fontSize:"13px"}} className="text-center">
-       MyEvents 2019.MyEvents is a wholly owned subsidiary of BullionBarsInternational.
+<h5 className="text-center" style={{fontSize:"15px"}}>
+       MyEvents 2019.
+        </h5>
+
+<h5 className="text-center" style={{fontSize:"15px"}}>
+       MyEvents is a wholly owned subsidiary of BullionBarsInternational.
         </h5>
 
 

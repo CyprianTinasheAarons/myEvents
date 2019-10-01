@@ -9,10 +9,10 @@ class Home extends Component{
 
 
 <div className="row p-1">
-         <div className="col-md-6   ">
+         <div className="col-md-6  col-12  ">
 
 <div className="video-container ">
-<img className="img-fluid rounded" src="img/carnival-celebration-crowd-1782146.jpg" />
+<img className="img-fluid" src="img/carnival-celebration-crowd-1782146.jpg" />
 
     <div className="video-text">
         <h5 style={{fontWeight:"bold" ,fontSize:"2rem"}}>
@@ -30,13 +30,8 @@ class Home extends Component{
 </div>
 <div className="col-md-4 my-auto ">
     <p>
-        My Events is platform that allows you create events . The real  world is calling .join a local meetup today.
-   
-        grayscale()
-Make the element have a gray color.
-You pass one value from 0 to 1, or from 0% to 100%, where 1 and 100% mean completely
-gray, and 0 or 0% mean the image is not touched, and the original colors remain.
-Example:
+    Connect with people interested in a event that you are hosting. 
+    MyEvents is the place to be if you want to enjoy life with the world.
     </p>
 
 </div>
@@ -83,10 +78,21 @@ Example:
 <div className="row">
 <div className="col-md-6 p-1   bg-light ml-auto">
     <div className="card">
-        <div className="card-body">
-                    <h1>
-                    Pitch Place 
-                    </h1>
+    <h5 className="text-center">
+                          PitchPlace
+                          </h5> 
+        <div className="card-body  video-container">
+                      
+        <img className="img-fluid " src="img/pitch1.svg"/>
+
+        <div className="video-text">
+      
+
+        <a href="#" className="text-white  btn btn-warning btn-block" style={{fontWeight:"700"}}>
+            Join PitchPlace
+        </a>
+    </div>
+                 
         </div>
     </div>
    
@@ -94,10 +100,21 @@ Example:
 </div> 
 <div className="col-md-6 p-1  bg-light mr-auto">
 <div className="card">
-        <div className="card-body">
-                    <h1>
-                   Home Cooking
-                    </h1>
+<h5 className="text-center">
+                          HomeCooking
+                          </h5>
+        <div className="card-body  video-container">
+      
+                 
+                   <img className="img-fluid " src="img/food1.svg"/>
+
+                   <div className="video-text">
+       
+        <a href="#" className="text-white  btn btn-dark btn-block" style={{fontWeight:"700"}}>
+            Join HomeCooking
+        </a>
+    </div>
+                 
         </div>
     </div>
 </div>
