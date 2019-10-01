@@ -83,22 +83,22 @@ class App extends Component{
         </Switch>
 
         <section  className="Footer bg-white b-top" >
-  <div className="row">
+
+<div className="row">
 
  
-<div className="col-md-5 m-1 p-1  mx-auto">
-<center>
-<p style={{ fontSize:"13px"}}>
-      
-       MyEvents 2019.   MyEvents is a wholly owned subsidiary of BullionBarsInternational.
-       
-        </p>
-</center>
+<div className="col-md-10 col-10 m-2 p-1 mx-auto">
 
-</div>
+<h5 style={{ fontSize:"13px"}} className="text-center">
+       MyEvents 2019.MyEvents is a wholly owned subsidiary of BullionBarsInternational.
+        </h5>
 
 
 </div>
+
+
+</div>
+
 
   </section>
 
