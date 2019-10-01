@@ -16,7 +16,7 @@ class Home extends Component{
 
     <div className="video-text">
         <h5 style={{fontWeight:"bold" ,fontSize:"2rem"}}>
-           MyEvents platform is for you.
+           MyEvents a place is for you.
         </h5>
 
         <a href="#" className="text-white  btn btn-danger btn-block" style={{fontWeight:"700"}}>
@@ -78,7 +78,7 @@ class Home extends Component{
 <div className="row">
 <div className="col-md-6 p-1   bg-light ml-auto">
     <div className="card">
-    <h5 className="text-center">
+    <h5 className="text-center m-1">
                           PitchPlace
                           </h5> 
         <div className="card-body  video-container">
@@ -100,7 +100,7 @@ class Home extends Component{
 </div> 
 <div className="col-md-6 p-1  bg-light mr-auto">
 <div className="card">
-<h5 className="text-center">
+<h5 className="text-center m-1">
                           HomeCooking
                           </h5>
         <div className="card-body  video-container">
