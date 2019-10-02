@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React , {Component} from 'react'
+import Signup from './signup'
+import { Link} from 'react-router-dom'
 
 
 class Home extends Component{
@@ -19,9 +21,9 @@ class Home extends Component{
            MyEvents a place is for you.
         </h5>
 
-        <a href="#" className="text-white  btn btn-danger btn-block" style={{fontWeight:"700"}}>
+        <Link to={'/Signup'} className="text-white  btn btn-danger " style={{fontWeight:"700"}}>
             Join MyEvents
-        </a>
+        </Link>
     </div>
 </div>
 
@@ -88,9 +90,9 @@ class Home extends Component{
         <div className="video-text">
       
 
-        <a href="#" className="text-white  btn btn-warning btn-block" style={{fontWeight:"700"}}>
+        <Link to={'/Signup'} className="text-white  btn btn-warning btn-block" style={{fontWeight:"700"}}>
             Join PitchPlace
-        </a>
+        </Link>
     </div>
                  
         </div>
@@ -110,9 +112,9 @@ class Home extends Component{
 
                    <div className="video-text">
        
-        <a href="#" className="text-white  btn btn-dark btn-block" style={{fontWeight:"700"}}>
+        <Link to={'/Signup'} className="text-white  btn btn-dark btn-block" style={{fontWeight:"700"}}>
             Join HomeCooking
-        </a>
+        </Link>
     </div>
                  
         </div>

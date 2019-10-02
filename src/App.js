@@ -4,7 +4,9 @@ import { Switch, Route,Link} from 'react-router-dom'
 import './App.css'
 import Home from './components/home'
 import Login from './components/login' 
+import EmailLogin from './components/email_login'
 import Signup from './components/signup'
+import Email from './components/email'
 import About from './components/about'
 
 import Events from './components/events'
@@ -63,7 +65,9 @@ class App extends Component{
         <Switch>
           <Route exact path='/' component ={Home}/>
           <Route exact path='/Login' component ={Login}/>
+          <Route exact path='/EmailLogin' component ={EmailLogin}/>
           <Route exact path='/Signup' component ={Signup}/>
+          <Route exact path='/Email' component ={Email}/>
           <Route exact path='/About' component ={About}/>
 
           <Route exact path='/Events' component ={Events}/>
