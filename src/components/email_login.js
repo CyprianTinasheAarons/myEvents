@@ -3,7 +3,7 @@ import React , {Component} from 'react'
 class EmailLogin extends Component{
     render(){
         return(
-            <div className="container-fluid bg-white" style={{backgroundImage:"url(img/adventure-flares-formation-70361.jpg)" ,height:"100%" ,width:"auto"}} >
+            <div className="container-fluid bg-white" style={{backgroundImage:"url(img/login.jpg)" ,height:"100%" ,width:"auto" , backgroundSize:"cover"}} >
   
         
   <div className="row">
@@ -19,7 +19,7 @@ class EmailLogin extends Component{
 
                                         <div className="form-group"><input className="form-control " type="email" name="email" placeholder="Email"/></div>
             <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Password"/></div>
-            <div className="form-group"><button className="btn  btn-block text-dark  btn-danger" type="submit"><strong>Log In</strong></button>
+            <div className="form-group"><button className="btn  btn-block text-white  btn-danger" type="submit"><strong>Log In</strong></button>
             </div>
             <a className="forgot" href="#">Forgot your email or password?</a></form>
 

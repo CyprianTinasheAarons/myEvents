@@ -5,7 +5,7 @@ import { Link} from 'react-router-dom'
 class Email extends Component{
     render(){
         return(
-            <div className="container-fluid bg-white" style={{backgroundImage:"url(img/adventure-flares-formation-70361.jpg)" ,height:"100%" ,width:"auto"}}  >
+            <div className="container-fluid bg-white" style={{backgroundImage:"url(img/adventure-flares-formation-70361.jpg)" ,height:"100%" ,width:"auto" , backgroundSize:"contain"}}  >
 
 
         
@@ -29,7 +29,7 @@ class Email extends Component{
                 <div className="form-group">
                 <input className="form-control" type="password" name="password" placeholder="Confirm Password"/>
                 </div>
-            <div className="form-group"><button className="btn  btn-block text-dark  btn-danger" type="submit"><strong>Next</strong></button>
+            <div className="form-group"><button className="btn  btn-block text-white  btn-danger" type="submit"><strong>Next</strong></button>
             </div><Link to={'/login'}>Already have a account?Login</Link></form>
 
           

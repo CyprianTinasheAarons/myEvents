@@ -6,7 +6,7 @@ class Login extends Component{
         return(
             <div className="container-fluid bg-white "  >
                 
-                <div className="row"  style={{backgroundImage:"url(img/adventure-flares-formation-70361.jpg)" ,height:"100%" ,width:"auto" ,padding: "100px 0px 100px 0px"}}    >
+                <div className="row"  style={{backgroundImage:"url(img/login.jpg)" ,height:"100%" ,width:"auto" ,backgroundSize:"contain"}}    >
                               <div className="col-md-3 mx-auto m-2 p-1">
                                   <div className="card m-1 p-1" >
                                       <div className="card-body">
@@ -20,11 +20,11 @@ class Login extends Component{
 
                        
                                         <div className="form-group">
-                                            <Link to={'/EmailLogin'} className="btn  btn-block text-dark  btn-danger" type="submit"><strong>Login with Email </strong></Link>
+                                            <Link to={'/EmailLogin'} className="btn  btn-block text-white btn-danger" type="submit"><strong>Login with Email </strong></Link>
             </div>
-                <div className="form-group"><button className="btn  btn-block text-dark  btn-danger" type="submit"><strong>Connect with Social</strong></button>
+                <div className="form-group"><button className="btn  btn-block text-white  btn-primary" type="submit"><strong>Connect with Social</strong></button>
             </div>
-            <div className="form-group"><button className="btn  btn-block text-dark  btn-danger" type="submit"><strong>Connect with Goggle</strong></button>
+            <div className="form-group"><button className="btn  btn-block text-dark  btn-white border border-dark" type="submit"><strong>Connect with Goggle</strong></button>
             </div><Link to={'/Signup'}>Need a account?Signup</Link></form>
 
           
