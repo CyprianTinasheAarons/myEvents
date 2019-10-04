@@ -24,6 +24,8 @@ import createCook from './components/createCook'
 import createEvent from './components/createEvent' 
 import createPitch from './components/createPitch' 
 
+import singleEvent from './components/singleEvent' 
+
 
 class App extends Component{
   render(){
@@ -83,6 +85,8 @@ class App extends Component{
           <Route exact path='/createCook' component ={createCook}/>
           <Route exact path='/createEvent' component ={createEvent}/>
           <Route exact path='/createPitch' component ={createPitch}/>
+
+          <Route exact path='/singleEvent' component ={singleEvent}/>
          
         </Switch>
 
