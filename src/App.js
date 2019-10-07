@@ -10,14 +10,13 @@ import Email from './components/email'
 import About from './components/about'
 
 import Events from './components/events'
-import eventsExplore from './components/eventsExplore' 
-import eventsNotification from './components/eventsNotification' 
+import Explore from './components/Explore' 
+import Notification from './components/Notification' 
 import Cooking from './components/cooking'
-import cookingExplore from './components/cookingExplore' 
-import cookingNotification from './components/cookingNotification'  
+
 import Pitch from './components/pitch'
-import pitchExplore from './components/pitchExplore' 
-import pitchNotification from './components/pitchNotification'  
+
+ 
 
 
 import createCook from './components/createCook' 
@@ -34,9 +33,8 @@ class App extends Component{
         
         <Navbar bg="white" expand="lg" className="b-bottom">
   <Navbar.Brand >
-   <p style={{fontSize:"15px"}}>
-   MyEvents
-   </p>
+   
+   <img src="img/my event logo new.jpg"  style={{height: "50px"}}/>
     </Navbar.Brand>
 
   <form action="#" className="search">
@@ -73,15 +71,12 @@ class App extends Component{
           <Route exact path='/About' component ={About}/>
 
           <Route exact path='/Events' component ={Events}/>
-          <Route exact path='/eventsExplore' component ={eventsExplore}/>
-          <Route exact path='/eventsNotification' component ={eventsNotification}/>
+          <Route exact path='/Explore' component ={Explore}/>
+          <Route exact path='/Notification' component ={Notification}/>
           <Route exact path='/Cooking' component ={Cooking}/>
-          <Route exact path='/cookingExplore' component ={cookingExplore} />
-          <Route exact path='/cookingNotification' component ={cookingNotification}/>
+        
           <Route exact path='/Pitch' component ={Pitch}/>
-          <Route exact path='/pitchExplore' component ={pitchExplore}/>
-          <Route exact path='/pitchNotification' component ={pitchNotification}/>
-
+     
           <Route exact path='/createCook' component ={createCook}/>
           <Route exact path='/createEvent' component ={createEvent}/>
           <Route exact path='/createPitch' component ={createPitch}/>

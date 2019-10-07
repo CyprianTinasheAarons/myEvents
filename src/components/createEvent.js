@@ -76,7 +76,7 @@ class createEvents extends Component{
 
                     <div className="col-md-8 p-1 my-1">
                     <div className="card">
-                        <center> <p className="text-muted p-1 m-1">Create an Event</p> </center>
+                        <center> <p className="text-muted p-1 m-1">Create Event</p> </center>
                        <hr/>
                         <div className="card-body">
                         <form>

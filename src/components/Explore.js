@@ -3,9 +3,12 @@ import React , {Component} from 'react'
 class eventsExplore extends Component{
     render(){
         return(
-            <div>
+            <div className="container-fluid bg-white">
 
-eventsExplore
+Explores Events  , Pitches and HomeCooking.
+Allow person to filter , super search , view categories.
+Like and review.
+
 
 
             </div>

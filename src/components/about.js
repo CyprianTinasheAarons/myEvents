@@ -15,11 +15,9 @@ class about extends Component{
                                               </center>
 
                                               <p>
-                                              grayscale()
-Make the element have a gray color.
-You pass one value from 0 to 1, or from 0% to 100%, where 1 and 100% mean completely
-gray, and 0 or 0% mean the image is not touched, and the original colors remain.
-Example:
+
+My Events  , PitchPlace and HomeCooking
+
                                               </p>
           
                                       </div>

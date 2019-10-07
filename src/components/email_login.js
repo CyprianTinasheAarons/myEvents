@@ -3,7 +3,7 @@ import React , {Component} from 'react'
 class EmailLogin extends Component{
     render(){
         return(
-            <div className="container-fluid bg-white" style={{backgroundImage:"url(img/login.jpg)" ,height:"100%" ,width:"auto" , backgroundSize:"cover"}} >
+            <div className="container-fluid bg-white" style={{backgroundImage:"url(img/login.jpg)" ,height:"100%" ,width:"auto" ,backgroundSize:"contain"}}   >
   
         
   <div className="row">

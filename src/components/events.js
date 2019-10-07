@@ -97,9 +97,9 @@ class events extends Component{
 <div className="col-md-6 mx-auto">
     
 <center>
-<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/eventsExplore'}>Explore</Link>
+<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/Explore'}>Explore</Link>
 
-<Link className="text-dark p-1 m-1 btn border border-danger" to={'/eventsNotification'}>Notifications</Link>
+<Link className="text-dark p-1 m-1 btn border border-danger" to={'/Notification'}>Notifications</Link>
 
 </center>
 
@@ -213,9 +213,9 @@ class events extends Component{
 
 </div>
 <div className="row">
-    <div className="col-12 col-md-9">
+    <div className="col-12 col-md-9 mx-auto">
     <div className="p-1 m-1">
-<div className="card border border-light">
+<div className="card border border-white">
 
     <div className="card-body row">
     <img  className=" col-12 col-sm-6 col-md-4 p-1 m-1 " src="img/login.jpg" />
@@ -230,7 +230,7 @@ class events extends Component{
        </p>
      
        <Link className="btn btn-danger text-white text-center" to={'createEvent'}>
-            Create an Event
+            Add a Event!
         </Link>
  </div>
        
