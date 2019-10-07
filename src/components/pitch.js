@@ -125,10 +125,81 @@ class pitch extends Component{
 
 
     <div className="bg-light">
+    <div className="row">
+    <div className="col-md-3">
+          <div className="card" >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+<div className="card-body">
+<p className="card-text">Paul Ruker
+</p>
+<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
+</div>
+
+</div>
+
+      
+</div>
+<div className="col-md-3">
+<div className="card" >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+<div className="card-body">
+<p className="card-text">Paul Ruker
+</p>
+<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
+</div>
+
+</div>
+
+      
+</div>
+
+<div className="col-md-3">
+<div className="card" >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+<div className="card-body">
+<p className="card-text">Paul Ruker
+</p>
+<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
+</div>
+
+</div>
+
+      
+</div>
+<div className="col-md-3">
+<div className="card" >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+<div className="card-body">
+<p className="card-text">Paul Ruker
+</p>
+<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
+</div>
+
+</div>
+
+      
+</div>
+
+    </div>
+
+
         
         </div>
     
     
+<hr/>
 
 <div className="row">
     <div className="col-12 col-md-9 mx-auto">
