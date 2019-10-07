@@ -212,6 +212,8 @@ class events extends Component{
 </div>
 
 </div>
+
+<hr/>
 <div className="row">
     <div className="col-12 col-md-9 mx-auto">
     <div className="p-1 m-1">

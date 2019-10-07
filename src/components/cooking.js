@@ -128,79 +128,57 @@ class cooking extends Component{
     <div className="bg-light">
 
     <div className="row">
-    <div className="col-md-6 col-12 mx-auto">
+    <div className="col-12 col-md-6">
     <div className="p-1 m-1">
-    <p className="text-dark">
-        Saturday, 10 July 
-    </p>
-<div className="card m-1 p-1 ">
-         <div className="card-body">
-             <p className="text-muted">
-                 12:00 PM
-             </p>
-         <h1>DevFest Zimbabwe 2019</h1>
-       <h3> GDG Harare</h3> <a href="#">20 going</a>
-         </div>
+<div className="card border">
 
-     </div>
+    <div className="card-body row">
+    <img  className=" col-12 col-sm-6 col-md-4 p-1 m-1 " src="img/food1.svg" />
+      
+ <div className="col-12 col-sm-6 col-md-4 p-1 m-1">
+
+ <h5 >Meal Title
+       </h5>
+
+ <p >Meal Summary
+       </p>
+       <p className=" ">
+       By <span>Cyprian</span>
+       </p>
+     
+       <Link className="btn btn-danger text-white text-center" to={'createEvent'}>
+            View Meal
+        </Link>
+ </div>
+ <div className="col-12 col-sm-6 col-md-3 p-1 m-1">
+   <ul className="list-unstyled">
+     <li> 10-07-19</li>
+     <li>Review stars</li>
+     <li>189 Likes</li>
+
+
+   </ul>
+
+   
+   </div>
+    
+    </div>
+
+</div>
+    
+
 </div>
     </div>
 
-    
-
 </div>
 
 
-<div className="row">
-    <div className="col-md-3 col-12 mx-auto">
-
-
-<div className="card ">
-<img  className="responsive-img " src="img/food1.svg"  style={{ height: "auto"}}/>
-    
-         <div className="card-body col-md-6 col-sm-6">
-             <p className="text-muted">
-                 12:00 PM
-             </p>
-         <h1>DevFest Zimbabwe 2019</h1>
-       <h3> GDG Harare</h3> <a href="#">20 going</a>
-         </div>
-
-     </div>
-
-    </div>
-
-    
-
-</div>
-<div className="row">
-    <div className="col-md-6 col-12 mx-auto">
-    <div className="p-1 m-1">
-    <p className="text-dark">
-        Saturday, 10 July 
-    </p>
-<div className="card m-1 p-1 ">
-         <div className="card-body">
-             <p className="text-muted">
-                 12:00 PM
-             </p>
-         <h1>DevFest Zimbabwe 2019</h1>
-       <h3> GDG Harare</h3> <a href="#">20 going</a>
-         </div>
-
-     </div>
-</div>
-    </div>
-
-    
-
-</div>
 
     </div>
 
 
 
-
+<hr/>
 <div className="row">
     <div className="col-12 col-md-9 mx-auto">
     <div className="p-1 m-1">
