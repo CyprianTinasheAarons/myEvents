@@ -126,7 +126,7 @@ class pitch extends Component{
 
     <div className="bg-light">
     <div className="row">
-    <div className="col-md-3">
+    <div className="col-md-3 ">
           <div className="card" >
 
 
@@ -144,10 +144,7 @@ class pitch extends Component{
 </div>
 <div className="col-md-3">
 <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
+<img className="card-img-top" src="img/login.jpg"/>
 <div className="card-body">
 <p className="card-text">Paul Ruker
 </p>
