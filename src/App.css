@@ -81,21 +81,39 @@
 
 
 
-/* :horizontal scrolling         */
-.menu-item {
 
-  user-select: none;
-  cursor: pointer;
+.card-1 {
 
-}
-.menu-item-wrapper.active {
-  border: 1px blue solid;
-}
-.menu-item.active {
-  border: 1px green solid;
+  background-color: #fff;
+  
+  min-height: 200px;
+  display: flex;
+  overflow-x: auto;
 }
 
-.scroll-menu-arrow {
-  padding: 20px;
-  cursor: pointer;
+.card-1::-webkit-scrollbar {
+  display: none;
+}
+
+.card--content {
+
+  min-width: 200px;
+  margin: 5px;
+}
+
+.card-filter {
+
+  background-color: #fff;
+  min-width: 100%;
+
+  display: flex;
+  overflow-x: auto;
+}
+
+.card-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.card--content-filter {
+  margin: 5px;
 }

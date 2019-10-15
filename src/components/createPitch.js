@@ -10,7 +10,7 @@ class createPitch extends Component{
          
             Description: '',
             Organizer: '' ,
-            images: []
+       
         }
 
         this.updateStateTitle = this.updateStateTitle.bind(this)
@@ -23,16 +23,7 @@ class createPitch extends Component{
    
     }
 
-    //Image upload
-    selectFiles(e){
-        let images = []
-        for (var i=0; i< e.target.files.length;i++){
-            images[i] = e.target.files.item(i)
-        }
-        images = images.filter(image => image.name.match(/\.(jpg|jpeg|gif|png)$/))
-        this.setState({ images})
 
-    }
 
     updateStateTitle(e){
         this.setState({
@@ -77,12 +68,7 @@ class createPitch extends Component{
                             <div className="row">
                                 <div className="col-md-6">
 
-                                <div className="form-group">
-<label for="eventTitle">Pitch Image</label>
-<input type="file" className="form-control"  
-onChange={ this.selectFiles} ref = "myInput" multiple/>
-
-</div>
+ 
 
                                 </div>
                                 <div className="col-md-6">

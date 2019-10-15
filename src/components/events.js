@@ -1,70 +1,10 @@
 import React , {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Calendar from 'react-calendar'
-import ScrollMenu from 'react-horizontal-scrolling-menu'
-
-// list of items
-const list = [
-    { name: 'item1' },
-    { name: 'item2' },
-    { name: 'item3' },
-    { name: 'item4' },
-    { name: 'item5' },
-    { name: 'item6' },
-    { name: 'item7' },
-    { name: 'item8' },
-    { name: 'item9' }
-  ];
-  
-  // One item component
-  // selected prop will be passed
-  const MenuItem = ({ text, selected }) => {
-    return (
-      <div
-        className="menu-item col-md-3 col-12"
-      >
-               
-        <div className="card m-1 p-1 border border-0">
-         <div className="card-body">
-         <h5>DevFest Zimbabwe 2019</h5>
-       <h6 className="text-muted">  {text}</h6>
-        <a href="#">57 Attendees</a>
-         </div>
-
-     </div>
-       
-       
-      </div>
-    );
-  };
-  
-  // All items component
-  // Important! add unique key
-  export const Menu = (list) => list.map(el => {
-    const { name } = el;
-  
-    return (
-      <MenuItem
-        text={name}
-        key={name}
-      />
-    );
-  });
-  
-  
-  const Arrow = ({ text, className }) => {
-    return (
-      <div
-        className={className}
-      >{text}</div>
-    );
-  };
-  
-
-const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 
+
+  
 class events extends Component{
     state = {
         date: new Date(),
@@ -80,15 +20,12 @@ class events extends Component{
 
     render(){
 
-        const {selected} = this.state
-
-        const menu = Menu(list,selected)
-
         return(
             <div className="container-fluid bg-white">
                 <center>
                 <Link className=" text-dark" to={'/createEvent'}>+ Add Event</Link>
                 </center>
+                <Link to={'/index'}>index</Link>
   
 
 
@@ -115,14 +52,57 @@ class events extends Component{
        Attending</h5> 
         <hr/>
 
-    <ScrollMenu    className="row"
-          data={menu}
-          arrowLeft={ArrowLeft}
-          arrowRight={ArrowRight}
-          selected={selected}
-          onSelect={this.onSelect}
-        />
- 
+        <section class="card-1">
+  <div class="card--content">
+    DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees</div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+  <div class="card--content">
+  DevFest Zimbabwe 2019
+    Item1
+    57 Attendees
+  </div>
+</section>
+
 
         </div>
     </div>

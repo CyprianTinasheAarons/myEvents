@@ -1,22 +1,28 @@
 import React ,{Component} from 'react'
 import {Navbar, Nav} from 'react-bootstrap' 
-import { Switch, Route,Link} from 'react-router-dom'
+import { Switch, Route,Link  ,Redirect} from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
+
+import { connect } from "react-redux"
+
 import './App.css'
 import Home from './components/home'
 import Login from './components/login' 
+import Logout from './components/logout' 
 import EmailLogin from './components/email_login'
 import Signup from './components/signup'
 import Email from './components/email'
 import About from './components/about'
-
 import Events from './components/events'
 import Explore from './components/Explore' 
+import Search from './components/search' 
 import Notification from './components/Notification' 
 import Cooking from './components/cooking'
-
 import Pitch from './components/pitch'
+import editEvent from './components/editEvent'
 
- 
+import Index from './components/index.component'
 
 
 import createCook from './components/createCook' 
@@ -27,18 +33,21 @@ import singleEvent from './components/singleEvent'
 
 
 class App extends Component{
+
+
   render(){
     return(
+      <Provider store={store}>
       <div className="p-1" style={{backgroundColor:"red"}}>
         
         <Navbar bg="white" expand="lg" className="b-bottom">
   <Navbar.Brand >
    
-   <img src="img/my event logo new.jpg"  style={{height: "50px"}}/>
+   <img src="img/logo.jpg"  style={{height: "50px"}}/>
     </Navbar.Brand>
 
-  <form action="#" className="search">
-                    <input type="text" className="search__input" placeholder="Search"/>
+  <form action="/Search" className="search">
+                   <input  type="text" className="search__input" placeholder="Search"/>
                    
                 </form>
   
@@ -48,11 +57,18 @@ class App extends Component{
     <Nav className="mr-auto">
  
           <Nav.Link   ><Link className=" p-1 m-1 red-color " to={'/'} >Home</Link></Nav.Link>
+      
           <Nav.Link ><Link className=" p-1 m-1 red-color" to={'/Events'} >MyEvents</Link></Nav.Link>
           <Nav.Link  ><Link className=" p-1 m-1 red-color" to={'/Cooking'} > HomeCooking</Link></Nav.Link> 
           <Nav.Link ><Link  className=" p-1 m-1 red-color" to={'/Pitch'} >PitchPlace</Link></Nav.Link>
           <Nav.Link  ><Link className=" p-1 m-1 black-color" to={'/About'} >About</Link></Nav.Link>
+
+       { this.props.auth.isAuthenticated  ?
+             <Nav.Link ><Link   className=" p-1 m-1 black-color" to={'/Logout'} >Logout</Link></Nav.Link>
+          :
           <Nav.Link ><Link   className=" p-1 m-1 black-color" to={'/Login'} >Login</Link></Nav.Link>
+         }
+        
           <Nav.Link  ><Link  className=" p-1 m-1 black-color" to={'/Signup'} >Signup</Link></Nav.Link>
 
     
@@ -65,6 +81,7 @@ class App extends Component{
         <Switch>
           <Route exact path='/' component ={Home}/>
           <Route exact path='/Login' component ={Login}/>
+          <Route exact path='/Logout' component ={Logout}/>
           <Route exact path='/EmailLogin' component ={EmailLogin}/>
           <Route exact path='/Signup' component ={Signup}/>
           <Route exact path='/Email' component ={Email}/>
@@ -72,6 +89,7 @@ class App extends Component{
 
           <Route exact path='/Events' component ={Events}/>
           <Route exact path='/Explore' component ={Explore}/>
+          <Route exact path='/Search' component ={Search}/>
           <Route exact path='/Notification' component ={Notification}/>
           <Route exact path='/Cooking' component ={Cooking}/>
         
@@ -82,6 +100,10 @@ class App extends Component{
           <Route exact path='/createPitch' component ={createPitch}/>
 
           <Route exact path='/singleEvent' component ={singleEvent}/>
+
+          <Route exact path='/editEvent/:id' component={ editEvent } />
+
+          <Route exact path='/index' component={ Index } />
          
         </Switch>
 
@@ -111,9 +133,13 @@ class App extends Component{
 
 
       </div>
-
+</Provider>
     )
   }
 }
+const mapStateToProps = state => ({
+  auth: state.auth,
 
-export default App;
+})
+
+export default connect(mapStateToProps)(App)

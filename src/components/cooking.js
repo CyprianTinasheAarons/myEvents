@@ -1,88 +1,13 @@
 import React , {Component} from 'react'
 import {Link} from  'react-router-dom'
-import ScrollMenu from 'react-horizontal-scrolling-menu'
-
-// list of items
-const list = [
-    { name: 'recipe1' },
-    { name: 'recipe2' },
-    { name: 'recipe3' },
-    { name: 'recipe4' },
-    { name: 'recipe5' },
-    { name: 'recipe6' },
-    { name: 'recipe7' },
-    { name: 'recipe8' },
-    { name: 'recipe9' }
-  ];
-  
-  // One item component
-  // selected prop will be passed
-  const MenuItem = ({ text, selected }) => {
-    return (
-      <div
-        className="menu-item col-md-3 col-12"
-      >
-               
-        <div className="card m-1 p-1 border border-0">
-         <div className="card-body">
-         <h5>Zim Cooking 2019</h5>
-       <h6 className="text-muted">  {text}</h6>
-      
-         </div>
-
-     </div>
-       
-       
-      </div>
-    );
-  };
-  
-  // All items component
-  // Important! add unique key
-  export const Menu = (list) => list.map(el => {
-    const { name } = el;
-  
-    return (
-      <MenuItem
-        text={name}
-        key={name}
-      />
-    );
-  });
-  
-  
-  const Arrow = ({ text, className }) => {
-    return (
-      <div
-        className={className}
-      >{text}</div>
-    );
-  };
-  
-
-const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 
 class cooking extends Component{
 
-    state = {
-        date: new Date(),
-        selected: 0
-    }
-
-
-    onSelect = key => {
-        this.setState({selected: key})
-    }
-
-    onChange =  date => this.setState({date})
-
+    
 
     render(){
-        const {selected} = this.state
-
-        const menu = Menu(list,selected)
+     
 
         return(
             <div className="container-fluid bg-white">
@@ -112,14 +37,59 @@ class cooking extends Component{
        <h5 className="text-dark p-1">
        Saved Recipes</h5> 
         <hr/>
+        <section class="card-1">
+  <div class="card--content">
+     Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+   Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+   Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+  Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">  Zimbabwe 2019
+Recipe1
+  </div>
+  <div class="card--content">
+  Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+  Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+  Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+  Zimbabwe 2019
+Recipe1
+  
+  </div>
+  <div class="card--content">
+  Zimbabwe 2019
+   Pitch1
+  
+  </div>
+</section>
 
-    <ScrollMenu    className="row"
-          data={menu}
-          arrowLeft={ArrowLeft}
-          arrowRight={ArrowRight}
-          selected={selected}
-          onSelect={this.onSelect}
-        />
+
+
  
 
         </div>

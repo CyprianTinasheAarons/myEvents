@@ -8,8 +8,7 @@ class createCook extends Component{
         this.state ={
             Title: '',
             Description: '',
-            Organizer: '' ,
-            images: []
+            Organizer: '' 
         }
 
         this.updateStateTitle = this.updateStateTitle.bind(this)
@@ -21,16 +20,6 @@ class createCook extends Component{
    
     }
 
-    //Image upload
-    selectFiles(e){
-        let images = []
-        for (var i=0; i< e.target.files.length;i++){
-            images[i] = e.target.files.item(i)
-        }
-        images = images.filter(image => image.name.match(/\.(jpg|jpeg|gif|png)$/))
-        this.setState({ images})
-
-    }
 
     updateStateTitle(e){
         this.setState({
@@ -73,12 +62,6 @@ class createCook extends Component{
                             <div className="row">
                                 <div className="col-md-6">
 
-                                <div className="form-group">
-<label for="eventTitle">Meal Image</label>
-<input type="file" className="form-control"  
-onChange={ this.selectFiles} ref = "myInput" multiple/>
-
-</div>
 
                                 </div>
                                 <div className="col-md-6">
