@@ -27,22 +27,20 @@ export default class editEvent extends Component {
       }
 
     componentDidMount(){
-        axios.get('http://localhost:4000/business/editEvent/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/events/editEvent/'+this.props.match.params.id)
         .then(response => {
             this.setState({ 
               Title: response.data.Title, 
               Location: response.data.Location,
               Description: response.data.Description ,
               Organizer: response.data.Organizer 
-            });
+            })
         })
         .catch(function (error) {
             console.log(error);
         })
 
     }
-
-    
 
     updateStateTitle(e) {
         this.setState({
@@ -51,15 +49,12 @@ export default class editEvent extends Component {
         )
     }
 
-
-
     updateStateLocation(e) {
         this.setState({
             Location: e.target.value
         }
         )
     }
-
 
     updateStateDescription(e) {
         this.setState({
@@ -79,17 +74,19 @@ export default class editEvent extends Component {
 
 
     onSubmit(e) {
-        e.preventDefault();
+        e.preventDefault()
+        
         const obj = {
             Title: this.state.Title,
             Location: this.state.Location,
             Description: this.state.Description,
             Organizer: this.state.Organizer
-        };
-        axios.post('http://localhost:4000/events/editEvent/'+this.props.match.params.id, obj)
-            .then(res => console.log(res.data));
+        }
+
+        axios.post('http://localhost:4000/events/updateEvent/'+this.props.match.params.id, obj)
+            .then(res => console.log(res.data))
         
-        this.props.history.push('/index');
+        this.props.history.push('/index')
       }
 
       clearInput() {
@@ -150,7 +147,7 @@ export default class editEvent extends Component {
                                                 onChange={this.updateStateOrganizer} ref="myInput" />
 
                                         </div>
-                                        <input type="submit" className="btn btn-primary p-1 m-1" />
+                                        <input type="submit" value="Update Event" className="btn btn-primary p-1 m-1" />
 
                                         <button onClick={this.clearInput} className="btn btn-danger p-1 m-1">Clear</button>
                                     </div>

@@ -1,24 +1,60 @@
 import React , {Component} from 'react'
+import Notifications , {notify} from 'react-notify-toast'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
+import DefaultImg from '../assets/default-img.jpg'
+
+const toastColor = { 
+    background: '#505050', 
+    text: '#fff' 
+  }
+  
 
 class createCook extends Component{
     constructor(props){
         super(props)
-
-        this.state ={
-            Title: '',
-            Description: '',
-            Organizer: '' 
-        }
-
         this.updateStateTitle = this.updateStateTitle.bind(this)
-        this.updateStateDescription = this.updateStateDescription.bind(this) 
-        this.updateStateOrganizer = this.updateStateOrganizer.bind(this)
+        this.updateStateRecipe = this.updateStateRecipe.bind(this) 
+        this.updateStateChef = this.updateStateChef.bind(this)
 
         //Clear input
         this.clearInput = this.clearInput.bind(this)
+
+        //Submit input
+        this.onSubmit = this.onSubmit.bind(this)
+
+        this.state = {
+            Title: '',
+            Recipe: '',
+            Chef: '',
+            multerImage: DefaultImg,
+            firebaseImage: DefaultImg,
+            baseImage: DefaultImg
+        }
    
     }
+
+
+    setDefaultImage(uploadType) {
+        if (uploadType === "multer") {
+          this.setState({
+            multerImage: DefaultImg
+          });
+        } else if (uploadType === "firebase") {
+          this.setState({
+            firebaseImage: DefaultImg
+          });
+        } else {
+          this.setState({
+            baseImage: DefaultImg
+          });
+        }
+      }
+
+   
+
+  
+    toast = notify.createShowQueue()
 
 
     updateStateTitle(e){
@@ -28,23 +64,79 @@ class createCook extends Component{
     }
     
 
-    updateStateDescription(e){
+    updateStateRecipe(e){
         this.setState({
-             Description: e.target.value}
+             Recipe: e.target.value}
             )
     }
 
 
-    updateStateOrganizer(e){
+    updateStateChef(e){
         this.setState({
-             Organizer: e.target.value}
+             Chef: e.target.value}
             )
     }
+
+    onSubmit(e ) {
+        e.preventDefault()
+       
+
+        const obj = {
+            Title: this.state.Title,
+            Recipe: this.state.Recipe,
+            Chef: this.state.Chef
+
+        }
+        axios.post('http://localhost:4000/meals/addMeal', obj)
+            .then(
+                () => {
+                    this.setDefaultImage("multer")
+                }
+            )
+
+        this.setState({
+            Title: '',
+            Recipe: '',
+            Chef: '' ,
+         
+        })
+    }
+
 
     clearInput(){
                     this.setState({Title: ''  , Description:'',Organizer:''})
                     ReactDOM.findDOMNode(this.refs.myInput).focus()
             }
+
+    uploadImage(e, method) {
+        let imageObj = {};
+    
+        if (method === "multer") {
+    
+            let imageFormObj = new FormData();
+    
+            imageFormObj.append("imageName", "multer-image-" + Date.now());
+            imageFormObj.append("imageData", e.target.files[0]);
+    
+            // stores a readable instance of 
+            // the image being uploaded using multer
+            this.setState({
+            multerImage: URL.createObjectURL(e.target.files[0])
+            });
+    
+            axios.post('http://localhost:4000/meals/imageupload', imageFormObj)
+            .then((data) => {
+                if (data.data.success) {
+                alert("Image has been successfully uploaded.");
+                this.setDefaultImage("multer");
+                }
+            })
+            .catch((err) => {
+                alert("Error while uploading image using multer");
+                this.setDefaultImage("multer");
+            });
+        }}
+            
 
 
     render(){
@@ -58,13 +150,17 @@ class createCook extends Component{
                         <center> <p className="text-muted p-1 m-1">Create a Meal</p> </center>
                        <hr/>
                         <div className="card-body">
-                        <form>
+                 
                             <div className="row">
                                 <div className="col-md-6">
+                                <input type="file"  onChange={(e) => this.uploadImage(e, "multer")} />
+                                        <img  className="p-1 m-1" src={this.state.multerImage} alt="upload-image" style={{width:"100%",height:"auto",maxWidth:"300px"}} />
+
 
 
                                 </div>
                                 <div className="col-md-6">
+                                <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
 <label for="eventTitle">Meal Title</label>
 <input type="text" className="form-control" placeholder="Enter Meal Title" value={this.state.Title}
@@ -75,24 +171,25 @@ onChange={ this.updateStateTitle} ref = "myInput"/>
 
 <div className="form-group">
 <label for="eventTitle">Recipe Description</label>
-<input type="text" className="form-control" placeholder="Enter Recipe Description" value={this.state.Description}
-onChange={ this.updateStateDescription} ref = "myInput"/>
+<input type="text" className="form-control" placeholder="Enter Recipe Description" value={this.state.Recipe}
+onChange={ this.updateStateRecipe} ref = "myInput"/>
 
 </div>
 <div className="form-group">
 <label for="eventTitle">Chef: </label>
-<input type="text" className="form-control" placeholder="Enter Meal Chef" value={this.state.Organizer}
-onChange={ this.updateStateOrganizer} ref = "myInput"/>
+<input type="text" className="form-control" placeholder="Enter Meal Chef" value={this.state.Chef}
+onChange={ this.updateStateChef} ref = "myInput"/>
 
 </div>
 <button type="submit" className="btn btn-primary p-1 m-1">Publish</button>
 
 <button onClick={this.clearInput}  className="btn btn-danger p-1 m-1">Clear</button>
+</form>
                                 </div>
 
                             </div>
 
-</form>
+
 
                         </div>
                     </div>
@@ -102,8 +199,7 @@ onChange={ this.updateStateOrganizer} ref = "myInput"/>
                     <div className="card" >
                         <center><p className="text-muted p-1 m-1"> Meal Preview</p></center>
                         <hr/>
-<img className="card-img-top " src="https://dummyimage.com/600x400/563d7c/fff"
-/>
+
 <hr/>
 <div className="card-body p-1 m-1">
 <h4 className="card-title">
@@ -112,9 +208,9 @@ onChange={ this.updateStateOrganizer} ref = "myInput"/>
 
 
 <p className="card-text">
-{this.state.Description}
+{this.state.Recipe}
 </p>
-<p className="card-title" >Meal by: {this.state.Organizer} </p>
+<p className="card-title" >Meal by: {this.state.Chef} </p>
 </div>
 </div>
 

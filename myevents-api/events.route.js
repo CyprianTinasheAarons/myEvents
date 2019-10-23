@@ -1,10 +1,62 @@
 const express = require('express')
 const eventRoutes =  express.Router()
+const multer = require('multer')
+let Image  = require('./image.model')
+const Event  =  require('./events.model')
 
-let Event  =  require('./events.model')
+const  storage = multer.diskStorage({
+  destination: function( req, file, cb){
+    cb(null, './uploads/events/')
+  } ,
+  filename: function(req, file,cb){
+    cb(null, Date.now() + file.originalname) ;
+  }
 
-eventRoutes.route('/addEvent').post( function(req, res){
-    let event = new Event(req.body)
+})
+
+const fileFilter = (req , file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+    cb(null, true)
+  } else{
+    cb(null, false)
+
+  }
+}
+
+const upload = multer({
+  storage:storage,
+  limits: {
+    fileSize: 10240 * 10240 * 5
+  } ,
+  fileFilter: fileFilter
+})
+
+eventRoutes.route("/imageUpload")
+    .post(upload.single('imageData'), (req, res, next) => {
+    
+        const newImage = new Image({
+            imageName: req.body.imageName,
+            imageData: req.file.path
+        })
+
+        newImage.save()
+            .then((result) => {
+                console.log(result);
+                res.status(200).json({
+                    success: true,
+                    document: result
+                });
+            })
+            .catch((err) => next(err));
+    });
+
+
+eventRoutes.route('/addEvent').post((req, res )=> {
+    // let event = new Event(req.body)
+    let event = new Event(
+      req.body 
+
+    )
     event.save()
         .then( event =>{
             res.status(200).json({
@@ -41,10 +93,10 @@ eventRoutes.route('/updateEvent/:id').post(function (req, res) {
     if (!event)
       res.status(404).send("data is not found");
     else {
-        event.person_name = req.body.Title;
-        event.business_name = req.body.Location;
-        event.business_gst_number = req.body.Description;
-        event.business_name = req.body.Organizer;
+        event.Title = req.body.Title;
+        event.Location = req.body.Location;
+        event.Description = req.body.Description;
+        event.Organizer = req.body.Organizer;
      
 
         event.save().then(event => {

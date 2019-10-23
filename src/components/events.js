@@ -26,6 +26,7 @@ class events extends Component{
                 <Link className=" text-dark" to={'/createEvent'}>+ Add Event</Link>
                 </center>
                 <Link to={'/index'}>index</Link>
+                <Link className=" p-1 m-1 black-color" to={'/admin'} >Admin</Link>
   
 
 

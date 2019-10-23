@@ -6,26 +6,8 @@ class about extends Component{
             <div className="container-fluid bg-white"  >
         
             <div className="row">
-                              <div className="col-md-3 mx-auto p-1 m-1">
-                                  <div className="card">
-                                      <div className="card-body">
-                                              <center><h5>About</h5></center>
-                                              <center>
-                                                  <img src=""/>
-                                              </center>
-
-                                              <p>
-
-My Events  , PitchPlace and HomeCooking
-
-                                              </p>
-          
-                                      </div>
-                                  </div>
-          
-          
-                                  
-          
+                              <div className="col-md-12 col-12 col-sm-12 mx-auto p-1 m-1 bg-light">
+                              
                               </div>
                           </div>
           

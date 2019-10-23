@@ -21,7 +21,7 @@ class cooking extends Component{
 <div className="col-md-6 mx-auto">
     
 <center>
-<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/cookingExplore'}>Explore</Link>
+<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/Explore'}>Explore</Link>
 
 <Link className="text-dark p-1 m-1 btn border border-danger" to={'/Notification'}>Notifications</Link>
 

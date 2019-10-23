@@ -1,4 +1,18 @@
-*{
+
+* {
+    box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
-    
-}
+  }
+  
+  html {
+    width: 100%;
+    min-height: 100%;
+  }
+  
+  body {
+    width: inherit ;
+    min-height: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  

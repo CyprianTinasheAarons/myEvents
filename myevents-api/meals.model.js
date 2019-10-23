@@ -1,26 +1,23 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-let Event =  new Schema (
+let Meal =  new Schema (
     {
         Title: {
             type: String
         },
-        Location: {
+        Recipe: {
             type: String
         },
-        Description: {
-            type: String
-        },
-        Organizer: {
+        Chef: {
             type: String
         }
 
     } ,
     {
-        collection:'events'
+        collection:'meals'
     }
 )
 
-module.exports = mongoose.model('Event ', Event )
+module.exports = mongoose.model('Meal ', Meal )
 

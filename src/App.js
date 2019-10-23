@@ -21,9 +21,11 @@ import Notification from './components/Notification'
 import Cooking from './components/cooking'
 import Pitch from './components/pitch'
 import editEvent from './components/editEvent'
+import editPitch from './components/editPitch'
+import editMeal from './components/editMeal'
+import editUser from './components/editUser'
 
 import Index from './components/index.component'
-
 
 import createCook from './components/createCook' 
 import createEvent from './components/createEvent' 
@@ -31,14 +33,16 @@ import createPitch from './components/createPitch'
 
 import singleEvent from './components/singleEvent' 
 
+import admin from './components/admin/admin'
 
 class App extends Component{
 
-
   render(){
+  
+   
     return(
       <Provider store={store}>
-      <div className="p-1" style={{backgroundColor:"red"}}>
+      <div className="p-1" style={{backgroundColor:"red"}} id="page-top"  >
         
         <Navbar bg="white" expand="lg" className="b-bottom">
   <Navbar.Brand >
@@ -59,23 +63,27 @@ class App extends Component{
           <Nav.Link   ><Link className=" p-1 m-1 red-color " to={'/'} >Home</Link></Nav.Link>
       
           <Nav.Link ><Link className=" p-1 m-1 red-color" to={'/Events'} >MyEvents</Link></Nav.Link>
-          <Nav.Link  ><Link className=" p-1 m-1 red-color" to={'/Cooking'} > HomeCooking</Link></Nav.Link> 
-          <Nav.Link ><Link  className=" p-1 m-1 red-color" to={'/Pitch'} >PitchPlace</Link></Nav.Link>
+          <Nav.Link  ><Link className=" p-1 m-1 text-dark" to={'/Cooking'} > HomeCooking</Link></Nav.Link> 
+          <Nav.Link ><Link  className=" p-1 m-1 text-warning" to={'/Pitch'} >PitchPlace</Link></Nav.Link>
           <Nav.Link  ><Link className=" p-1 m-1 black-color" to={'/About'} >About</Link></Nav.Link>
 
        { this.props.auth.isAuthenticated  ?
              <Nav.Link ><Link   className=" p-1 m-1 black-color" to={'/Logout'} >Logout</Link></Nav.Link>
           :
           <Nav.Link ><Link   className=" p-1 m-1 black-color" to={'/Login'} >Login</Link></Nav.Link>
+  
          }
-        
+           
           <Nav.Link  ><Link  className=" p-1 m-1 black-color" to={'/Signup'} >Signup</Link></Nav.Link>
 
     
     </Nav>
     
   </Navbar.Collapse>
-</Navbar>
+</Navbar> 
+<div>
+
+</div>
 
 
         <Switch>
@@ -103,8 +111,16 @@ class App extends Component{
 
           <Route exact path='/editEvent/:id' component={ editEvent } />
 
+          <Route exact path='/editMeal/:id' component={ editMeal } />
+
+
+          <Route exact path='/editPitch/:id' component={ editPitch } />
+
+          <Route exact path='/editUser/:id' component={ editUser } />
+
           <Route exact path='/index' component={ Index } />
          
+          <Route exact path='/admin' component={ admin } />
         </Switch>
 
         <section  className="Footer bg-white b-top" >
@@ -130,6 +146,11 @@ class App extends Component{
 
 
   </section>
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
 
 
       </div>

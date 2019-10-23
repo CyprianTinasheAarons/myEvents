@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 let Event =  new Schema (
     {
+        
         Title: {
             type: String
         },
@@ -14,7 +15,9 @@ let Event =  new Schema (
         },
         Organizer: {
             type: String
-        }
+        } 
+      
+
     } ,
     {
         collection:'events'

@@ -1,382 +1,129 @@
 import React , {Component} from 'react'
 import {Navbar, Nav ,NavDropdown ,Form ,FormControl , Button  } from 'react-bootstrap' 
+import axios from 'axios'
+import  Card from './Card'
 
-class eventsExplore extends Component{
+
+
+export default class eventsExplore extends Component{
+
+    constructor (props) {
+      super(props)
+      this.state ={
+        event: [] ,
+        meal: [] ,
+        pitch: [] ,
+        searchString: ''  
+      }
+    }
+
+    componentDidMount(){
+     
+      axios.get('http://localhost:4000/events')
+          .then(response =>{
+              this.setState({event: response.data})
+          })
+          .catch(function(error){
+              console.log(error)
+          })
+
+      
+          axios.get('http://localhost:4000/meals')
+          .then(response =>{
+              this.setState({meal: response.data})
+          })
+          .catch(function(error){
+              console.log(error)
+          })
+
+
+          axios.get('http://localhost:4000/pitches')
+          .then(response =>{
+              this.setState({pitch: response.data})
+          })
+          .catch(function(error){
+              console.log(error)
+          })
+
+    }
+
+    cardEvent (){
+        return this.state.event.map(function(object, i){
+            return <Card obj={object} key={i} />
+        })
+    }
+
+    cardMeal (){
+      return this.state.meal.map(function(object, i){
+          return <Card obj={object} key={i} />
+      })
+  }
+
+    cardPitch (){
+        return this.state.pitch.map(function(object, i){
+            return <Card obj={object} key={i} />
+        })
+    }
+
+    handleChange(e) {
+              return this.setState({ searchString: e.target.value})
+    }
+
     render(){
+      
         return(
+
             <div className="container-fluid bg-white">
                 <div align="center " className="p-1 ">
-                    <h1 className="p-1 m-1">Events , Pitches and Recipes to excite your curiosity</h1>
-                    <h5 className="p-1 m-1">Explore to find the right one for you.</h5>
+                    <h1 className="p-1 m-1 text-center">Events , Pitches and Recipes to excite your curiosity</h1>
+                    <h5 className="p-1 m-1 text-center">Explore to find the right one for you.</h5>
                 </div>
 
-                <Navbar bg="light" expand="lg">
-  
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-    <NavDropdown title="Topics" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-   
-      <NavDropdown title="Duration" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-
-      <NavDropdown title="Sort by:" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
-    </Form>
-  </Navbar.Collapse>
-</Navbar>
-
-<div>
-                        <p className="p-1 m-2" align="left">
-                            Filters
-                        </p>
-                     
-                        <section className="card-filter">
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter"> <button className="btn btn-light border border-dark ">party</button></div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter"> <button className="btn btn-light border border-dark ">party</button></div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-  <div className="card--content-filter">
-<button className="btn btn-light border border-dark ">party</button>
-  </div>
-</section>
-
-
-                    </div>
-            
-
-
                 <hr/>
-
-                
+      
                     <div>
+
                         <h5 align="left">
-                            New 
+                          Events 
                         </h5>
                      
                         <section class="card-1">
-  <div class="card--content">
-  <div className="card" >
+                       
+                          {this.cardEvent()}
+                          
 
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div></div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
 </section>
 
 
                     </div>
             
 
-                    <div>
+  <div>
                         <h5 align="left">
-                            Popular
+                            Pitches
                         </h5>
                      
                         <section class="card-1">
-  <div class="card--content">
-     <div className="card" >
 
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div></div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
-  <div class="card--content">
-   <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p> "Flying Car" </p>
-</div>
-
-</div>
-  </div>
+                          {this.cardPitch()}
+ 
 </section>
 
 
                     </div>
-            
+  <div>
+                        <h5 align="left">
+                            Meals
+                        </h5>
+                     
+                        <section class="card-1">
+
+                          {this.cardMeal()}
+ 
+</section>
+
+
+                    </div>
 
 
                     <div>
@@ -386,131 +133,104 @@ class eventsExplore extends Component{
                      
                         <section class="card-1">
   <div class="card--content">
-     <div className="card video-container" >
+     <div className="card " >
 
 
 <img className="card-img-top" src="img/login.jpg"/ >
 
 
-<p className="video-text"> Outdoors & Adventure </p>
+
 
 </div>
+<p className="p-1 "> Outdoors & Adventure </p>
+  </div>
+
+  <div class="card--content">
+     <div className="card " >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+
+
+
+</div>
+<p className="p-1 "> Entertainment </p>
+  </div>
+
+  <div class="card--content">
+     <div className="card " >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+
+
+
+</div>
+<p className="p-1 "> Corporate </p>
   </div>
   <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
+     <div className="card " >
 
 
 <img className="card-img-top" src="img/login.jpg"/ >
 
 
-<p className="video-text"> Outdoors & Adventure </p>
+
 
 </div>
-  </div>
+<p className="p-1 "> Humanitarian </p>
   </div>
   <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
+     <div className="card " >
 
 
 <img className="card-img-top" src="img/login.jpg"/ >
 
 
-<p className="video-text"> Outdoors & Adventure </p>
+
 
 </div>
-  </div>
+<p className="p-1 "> Outdoors & Adventure </p>
   </div>
   <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
+     <div className="card " >
 
 
 <img className="card-img-top" src="img/login.jpg"/ >
 
 
-<p className="video-text"> Outdoors & Adventure </p>
+
 
 </div>
-  </div>
-  </div>
-  <div class="card--content">     <div class="card--content">
-     <div className="card video-container" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-
-<p className="video-text"> Outdoors & Adventure </p>
-
-</div>
-  </div></div>
-  <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-
-<p className="video-text"> Outdoors & Adventure </p>
-
-</div>
-  </div>
+<p className="p-1 "> Outdoors & Adventure </p>
   </div>
   <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
+     <div className="card " >
 
 
 <img className="card-img-top" src="img/login.jpg"/ >
 
 
-<p className="video-text"> Outdoors & Adventure </p>
+
 
 </div>
-  </div>
+<p className="p-1 "> Outdoors & Adventure </p>
   </div>
   <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
+     <div className="card " >
 
 
 <img className="card-img-top" src="img/login.jpg"/ >
 
 
-<p className="video-text"> Outdoors & Adventure </p>
+
 
 </div>
+<p className="p-1 "> Outdoors & Adventure </p>
   </div>
-  </div>
-  <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-
-<p className="video-text"> Outdoors & Adventure </p>
-
-</div>
-  </div>
-  </div>
-  <div class="card--content">
-     <div class="card--content">
-     <div className="card video-container" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-
-<p className="video-text"> Arts </p>
-
-</div>
-  </div>
-  </div>
+ 
 </section>
 
 
@@ -523,8 +243,7 @@ Allow person to filter , super search , view categories.
 Like and review.
 
             </div>
+        
         )
     }
 }
-
-export default eventsExplore

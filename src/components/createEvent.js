@@ -2,11 +2,7 @@ import React, { Component} from 'react'
 import Notifications , {notify} from 'react-notify-toast'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import Spinner from './imagesUpload/spinner'
-import Images from './imagesUpload/images'
-import Button from './imagesUpload/buttons'
-import {API_URL} from './config'
-
+import DefaultImg from '../assets/default-img.jpg'
 
 const toastColor = { 
     background: '#505050', 
@@ -22,11 +18,7 @@ class createEvents extends Component {
         this.updateStateLocation = this.updateStateLocation.bind(this)
         this.updateStateDescription = this.updateStateDescription.bind(this)
         this.updateStateOrganizer = this.updateStateOrganizer.bind(this)
-        this.state = {
-            uploadedFile: null,
-            uploadedFileCloudinaryUrl: ''
-          }
-
+        
         //Submit input
         this.onSubmit = this.onSubmit.bind(this)
 
@@ -38,13 +30,30 @@ class createEvents extends Component {
             Location: '',
             Description: '',
             Organizer: '',
-            loading: true,
-            uploading: false,
-            images: []
-
+            multerImage: DefaultImg,
+            firebaseImage: DefaultImg,
+            baseImage: DefaultImg
         }
 
     }
+
+    setDefaultImage(uploadType) {
+        if (uploadType === "multer") {
+          this.setState({
+            multerImage: DefaultImg
+          });
+        } else if (uploadType === "firebase") {
+          this.setState({
+            firebaseImage: DefaultImg
+          });
+        } else {
+          this.setState({
+            baseImage: DefaultImg
+          });
+        }
+      }
+
+   
 
   
     toast = notify.createShowQueue()
@@ -56,15 +65,12 @@ class createEvents extends Component {
         )
     }
 
-
-
     updateStateLocation(e) {
         this.setState({
             Location: e.target.value
         }
         )
     }
-
 
     updateStateDescription(e) {
         this.setState({
@@ -81,22 +87,32 @@ class createEvents extends Component {
         )
     }
 
-    onSubmit(e) {
+    onSubmit(e ) {
         e.preventDefault()
+       
+
         const obj = {
             Title: this.state.Title,
             Location: this.state.Location,
             Description: this.state.Description,
-            Organizer: this.state.Organizer
+            Organizer: this.state.Organizer ,
+        
+
         }
         axios.post('http://localhost:4000/events/addEvent', obj)
-            .then(res => console.log(res.data))
+            .then(
+                () => {
+                    this.setDefaultImage("multer")
+                    alert("Event successfully uploaded.");
+                }
+            )
 
         this.setState({
             Title: '',
             Location: '',
             Description: '',
-            Organizer: ''
+            Organizer: '' 
+         
         })
     }
 
@@ -105,96 +121,38 @@ class createEvents extends Component {
         ReactDOM.findDOMNode(this.refs.myInput).focus()
     }
 
-
-    onChange = e => {
-        const errs = [] 
-        const files = Array.from(e.target.files)
+    uploadImage(e, method) {
+        let imageObj = {};
     
-        if (files.length > 3) {
-          const msg = 'Only 3 images can be uploaded at a time'
-          return this.toast(msg, 'custom', 2000, toastColor)  
-        }
+        if (method === "multer") {
     
-        const formData = new FormData()
-        const types = ['image/png', 'image/jpeg', 'image/gif']
+          let imageFormObj = new FormData();
     
-        files.forEach((file, i) => {
+          imageFormObj.append("imageName", "multer-image-" + Date.now());
+          imageFormObj.append("imageData", e.target.files[0]);
     
-          if (types.every(type => file.type !== type)) {
-            errs.push(`'${file.type}' is not a supported format`)
-          }
-    
-          if (file.size > 150000) {
-            errs.push(`'${file.name}' is too large, please pick a smaller file`)
-          }
-    
-          formData.append(i, file)
-        })
-    
-        if (errs.length) {
-          return errs.forEach(err => this.toast(err, 'custom', 2000, toastColor))
-        }
-    
-        this.setState({ uploading: true })
-    
-        fetch(`${API_URL}/image-upload`, {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => {
-          if (!res.ok) {
-            throw res
-          }
-          return res.json()
-        })
-        .then(images => {
+          // stores a readable instance of 
+          // the image being uploaded using multer
           this.setState({
-            uploading: false, 
-            images
-          })
-        })
-        .catch(err => {
-          err.json().then(e => {
-            this.toast(e.message, 'custom', 2000, toastColor)
-            this.setState({ uploading: false })
-          })
-        })
-      }
+            multerImage: URL.createObjectURL(e.target.files[0])
+          });
     
-      filter = id => {
-        return this.state.images.filter(image => image.public_id !== id)
-      }
+          axios.post('http://localhost:4000/events/imageupload', imageFormObj)
+            .then((data) => {
+              if (data.data.success) {
+                alert("Image has been successfully uploaded.");
+                this.setDefaultImage("multer");
+              }
+            })
+            .catch((err) => {
+              alert("Error while uploading image using multer");
+              this.setDefaultImage("multer");
+            });
+        }}
     
-      removeImage = id => {
-        this.setState({ images: this.filter(id) })
-      }
-    
-      onError = id => {
-        this.toast('Oops, something went wrong', 'custom', 2000, toastColor)
-        this.setState({ images: this.filter(id) })
-      }
-      
-      
-
 
     render() {
 
-        const { uploading , images } = this.state
-
-        const content = () => {
-            switch(true){
-                case uploading:
-                    return <Spinner />
-                case  images.length > 0:
-                    return <Images 
-                    image = {images}
-                    removeImage ={ this.removeImage}
-                    onError = {this.onError}
-                      />
-                default:
-                    return <Button onChange={this.onChange} />
-            }
-        }
        
         return (
             <div className="container-fluid bg-white">
@@ -207,14 +165,19 @@ class createEvents extends Component {
                             <hr />
                             <div className="card-body">
                                 <Notifications/>
-                                <form onSubmit={this.onSubmit}>
+                               
+                               
                                     <div className="row">
-                                        <div className="col-md-6 buttons">
-                                         {content()}
-                                          
+                                        <div className="col-md-6 col-12 col-sm-12">
+
+                                        <input type="file"  onChange={(e) => this.uploadImage(e, "multer")} />
+                                        <img  className="p-1 m-1" src={this.state.multerImage} alt="upload-image" style={{width:"100%",height:"auto",maxWidth:"300px"}} />
+
 
                                         </div>
+                                        
                                         <div className="col-md-6">
+                                        <form onSubmit={this.onSubmit} >
                                             <div className="form-group">
                                                 <label for="eventTitle">Event Title</label>
                                                 <input
@@ -253,11 +216,15 @@ class createEvents extends Component {
                                             <input type="submit" className="btn btn-primary p-1 m-1" />
 
                                             <button onClick={this.clearInput} className="btn btn-danger p-1 m-1">Clear</button>
+                                            </form>
+                                        
                                         </div>
+
+                                        
 
                                     </div>
 
-                                </form>
+                             
 
                             </div>
                         </div>
@@ -265,23 +232,24 @@ class createEvents extends Component {
                     </div>
                     <div className="col-md-4 p-1 my-1" id="preview">
                         <div className="card" >
-                            <center><p className="text-muted p-1 m-1"> Event Preview</p></center>
-                            <hr />
-            
-                            <hr />
+                            <center><p className="text-muted p-1 m-1"> Event Details Preview</p></center>
+                           
                             <div className="card-body p-1 m-1">
                                 <h4 className="card-title">
+                                Title:&nbsp;
                                     {this.state.Title}
                                 </h4>
                                 <h6 className="card-title ">
+                                Location:&nbsp;
                                     {this.state.Location}
 
                                 </h6>
 
                                 <p className="card-text">
+                                 Description:&nbsp;
                                     {this.state.Description}
                                 </p>
-                                <p className="card-title" >Organized by: {this.state.Organizer} </p>
+                                <p className="card-title" >Organized by: &nbsp; {this.state.Organizer} </p>
                             </div>
                         </div>
 

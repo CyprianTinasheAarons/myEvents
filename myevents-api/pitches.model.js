@@ -1,26 +1,24 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-let Event =  new Schema (
+let Pitch =  new Schema (
     {
         Title: {
             type: String
         },
-        Location: {
-            type: String
-        },
+      
         Description: {
             type: String
         },
-        Organizer: {
+        Owner: {
             type: String
         }
 
     } ,
     {
-        collection:'events'
+        collection:'pitches'
     }
 )
 
-module.exports = mongoose.model('Event ', Event )
+module.exports = mongoose.model('Pitch ', Pitch )
 

@@ -2,12 +2,21 @@ import React , {Component } from 'react'
 import axios from 'axios'
 import TableRow from './TableRow'
 
+
 export default class Index extends Component {
     constructor(props){
         super(props)
-        this.state = {event: []}
+        this.state = {
+            event: [] 
+           
+        }
+
+
 
     }
+
+
+
     componentDidMount(){
         axios.get('http://localhost:4000/events')
             .then(response =>{
