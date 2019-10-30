@@ -2,6 +2,10 @@ import React, { Component} from 'react'
 import Notifications , {notify} from 'react-notify-toast'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+import  {EditorState} from 'draft-js'
+import {Editor} from 'react-draft-wysiwyg'
+import  'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+
 import DefaultImg from '../assets/default-img.jpg'
 
 const toastColor = { 
@@ -32,7 +36,8 @@ class createEvents extends Component {
             Organizer: '',
             multerImage: DefaultImg,
             firebaseImage: DefaultImg,
-            baseImage: DefaultImg
+            baseImage: DefaultImg,
+            editorState: EditorState.createEmpty() 
         }
 
     }
@@ -53,9 +58,6 @@ class createEvents extends Component {
         }
       }
 
-   
-
-  
     toast = notify.createShowQueue()
 
     updateStateTitle(e) {
@@ -86,6 +88,8 @@ class createEvents extends Component {
         }
         )
     }
+
+    onChange = (editorState) => this.setState({editorState});
 
     onSubmit(e ) {
         e.preventDefault()
@@ -203,9 +207,19 @@ class createEvents extends Component {
                                             </div>
                                             <div className="form-group">
                                                 <label for="eventTitle">Event Description</label>
-                                                <input type="text" className="form-control" placeholder="Enter Event Description" value={this.state.Description}
-                                                    onChange={this.updateStateDescription} ref="myInput" />
+                                                <input
 
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Enter Event Location"
+                                                value={this.state.Description}
+                                                onChange={this.updateStateDescription}
+                                                ref="myInput"
+
+                                                   />
+
+                                                  
+                                                                                                    
                                             </div>
                                             <div className="form-group">
                                                 <label for="eventTitle">Event Organizer</label>

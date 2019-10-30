@@ -25,13 +25,11 @@ import editPitch from './components/editPitch'
 import editMeal from './components/editMeal'
 import editUser from './components/editUser'
 
-import Index from './components/index.component'
-
 import createCook from './components/createCook' 
 import createEvent from './components/createEvent' 
 import createPitch from './components/createPitch' 
 
-import singleEvent from './components/singleEvent' 
+import eventSingle from './components/eventsingle' 
 
 import admin from './components/admin/admin'
 
@@ -42,18 +40,17 @@ class App extends Component{
    
     return(
       <Provider store={store}>
-      <div className="p-1" style={{backgroundColor:"red"}} id="page-top"  >
-        
+      <div className="p-1" style={{backgroundColor:"red"}} id="page-top"   >
+        <div class="event-list">
         <Navbar bg="white" expand="lg" className="b-bottom">
   <Navbar.Brand >
    
    <img src="img/logo.jpg"  style={{height: "50px"}}/>
     </Navbar.Brand>
 
-  <form action="/Search" className="search">
-                   <input  type="text" className="search__input" placeholder="Search"/>
-                   
-                </form>
+                   <input  type="text" className="search__input search" placeholder="Search"/>
+               
+         
   
 
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -107,18 +104,15 @@ class App extends Component{
           <Route exact path='/createEvent' component ={createEvent}/>
           <Route exact path='/createPitch' component ={createPitch}/>
 
-          <Route exact path='/singleEvent' component ={singleEvent}/>
+          <Route exact path='/eventSingle/:id' component ={eventSingle}/>
 
           <Route exact path='/editEvent/:id' component={ editEvent } />
 
           <Route exact path='/editMeal/:id' component={ editMeal } />
 
-
           <Route exact path='/editPitch/:id' component={ editPitch } />
 
           <Route exact path='/editUser/:id' component={ editUser } />
-
-          <Route exact path='/index' component={ Index } />
          
           <Route exact path='/admin' component={ admin } />
         </Switch>
@@ -153,6 +147,7 @@ class App extends Component{
 
 
 
+      </div>
       </div>
 </Provider>
     )

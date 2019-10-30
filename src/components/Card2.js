@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
-export default class Card extends Component{
+export default class Card2 extends Component{
   
 render(){
     return(
@@ -31,11 +31,10 @@ render(){
   </div>
   <Link to={'/eventsingle/' +this.props.obj._id}> 
 <p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{this.props.obj.Title}</p>
-    <p  className="event text-dark" style={{margin: "0px" , padding: "0px"}}>
-        {this.props.obj.Location}</p>
+    
         
    <p className="organizer text-dark">
-        {this.props.obj.Organizer}
+        {this.props.obj.Owner}
   </p>
   </Link>
   <button className=" btn-circle">

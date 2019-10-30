@@ -32,13 +32,13 @@ render(){
   <Link to={'/eventsingle/' +this.props.obj._id}> 
 <p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{this.props.obj.Title}</p>
     <p  className="event text-dark" style={{margin: "0px" , padding: "0px"}}>
-        {this.props.obj.Location}</p>
+        {this.props.obj.Recipe}</p>
         
    <p className="organizer text-dark">
-        {this.props.obj.Organizer}
+        {this.props.obj.Chef}
   </p>
   </Link>
-  <button className=" btn-circle">
+<button className=" btn-circle">
   +
 </button>
 

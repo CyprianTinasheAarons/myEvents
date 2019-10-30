@@ -28,7 +28,7 @@ class Login extends Component{
             </div>
                 <div className="form-group"><button className="btn  btn-block text-white  btn-primary" type="submit">
                     
-                    <strong>Connect with Social</strong></button>
+                    <strong>Connect with Facebook</strong></button>
             </div>
             <div className="form-group"><button className="btn  btn-block text-dark  btn-white border border-dark" type="submit">
             <span class="svgIcon t-popup-svg">

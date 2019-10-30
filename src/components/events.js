@@ -25,7 +25,7 @@ class events extends Component{
                 <center>
                 <Link className=" text-dark" to={'/createEvent'}>+ Add Event</Link>
                 </center>
-                <Link to={'/index'}>index</Link>
+             
                 <Link className=" p-1 m-1 black-color" to={'/admin'} >Admin</Link>
   
 
@@ -54,54 +54,57 @@ class events extends Component{
         <hr/>
 
         <section class="card-1">
-  <div class="card--content">
-    DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
+  <div class="card--content border border-dark ">
+   <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
+  </div>
+  <div class="card--content border border-dark">
+  <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
+  </div>
+  <div class="card--content border border-dark">
+  <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
   </div>
   <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
+ <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
+  </div>
+
+  <div class="card--content border border-dark">
+  <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
+  </div>
+  <div class="card--content border border-dark">
+  <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
   </div>
   <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
+ <center>
+  <p> DevFestival Zim 2019</p>
+    <p>Item1</p>
+  <p className="text-success">57 Attendees</p>
+   </center>
   </div>
-  <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
-  </div>
-  <div class="card--content">  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees</div>
-  <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
-  </div>
-  <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
-  </div>
-  <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
-  </div>
-  <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
-  </div>
-  <div class="card--content">
-  DevFest Zimbabwe 2019
-    Item1
-    57 Attendees
-  </div>
+
 </section>
 
 

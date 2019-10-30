@@ -2,6 +2,10 @@ import React , {Component} from 'react'
 import {Navbar, Nav ,NavDropdown ,Form ,FormControl , Button  } from 'react-bootstrap' 
 import axios from 'axios'
 import  Card from './Card'
+import  Card2 from './Card2'
+import  Card3 from './Card3'
+import Search from '../components/search' 
+
 
 
 
@@ -9,6 +13,7 @@ export default class eventsExplore extends Component{
 
     constructor (props) {
       super(props)
+      this.handleChangeSearch = this.handleChangeSearch.bind(this)
       this.state ={
         event: [] ,
         meal: [] ,
@@ -17,8 +22,20 @@ export default class eventsExplore extends Component{
       }
     }
 
+    handleChangeSearch(e) {
+      const condition = new RegExp(e.target.value, 'i');
+      const event = this.state.event.filter(name  => {
+        return condition.test(name );
+      });
+  
+      this.setState({
+        event
+      })
+    }
+
+
     componentDidMount(){
-     
+   
       axios.get('http://localhost:4000/events')
           .then(response =>{
               this.setState({event: response.data})
@@ -55,13 +72,13 @@ export default class eventsExplore extends Component{
 
     cardMeal (){
       return this.state.meal.map(function(object, i){
-          return <Card obj={object} key={i} />
+          return <Card3 obj={object} key={i} />
       })
-  }
+    }
 
     cardPitch (){
         return this.state.pitch.map(function(object, i){
-            return <Card obj={object} key={i} />
+            return <Card2 obj={object} key={i} />
         })
     }
 
@@ -80,14 +97,19 @@ export default class eventsExplore extends Component{
                 </div>
 
                 <hr/>
-      
-                    <div>
-
+                
+                    <input  
+                    type="text" 
+                    className="search__input search"
+                    placeholder="Search"
+                    onChange = { this.handleChangeSearch}
+                    />
                         <h5 align="left">
                           Events 
                         </h5>
-                     
-                        <section class="card-1">
+                    
+                        <section class="card-1 ">
+                        
                        
                           {this.cardEvent()}
                           
@@ -95,7 +117,7 @@ export default class eventsExplore extends Component{
 </section>
 
 
-                    </div>
+                  
             
 
   <div>

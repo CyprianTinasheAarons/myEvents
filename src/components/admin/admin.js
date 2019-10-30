@@ -6,6 +6,7 @@ import TableRow from '../TableRow'
 import TableRowUser from '../tableRowUser'
 import TableRowMeal from '../tableRowMeal'
 import TableRowPitch from '../tableRowPitch'
+import {Link} from 'react-router-dom'
 
 export default class Admin extends Component {
 
@@ -208,6 +209,16 @@ export default class Admin extends Component {
 
         
 <div className="card shadow mb-4">
+  <center>
+                    <button
+                    onClick = {
+                        e => {
+                            this.onClose(e)
+                        }
+                    }
+                    >
+                        Close
+                    </button></center>
   <div className="card-header py-3">
     <h6 className="m-0 font-weight-bold text-primary">Events Table</h6>
   </div>
@@ -234,15 +245,6 @@ export default class Admin extends Component {
 </div>
 
 </div>
-                    <button
-                    onClick = {
-                        e => {
-                            this.onClose(e)
-                        }
-                    }
-                    >
-                        Close
-                    </button>
                 </div>
                 </div>)
             }
@@ -295,6 +297,15 @@ onClose = e => {
 
         
 <div className="card shadow mb-4">
+  <center>      <button
+            onClick = {
+                e => {
+                    this.onClose(e)
+                }
+            }
+            >
+                Close
+            </button></center>
   <div className="card-header py-3">
     <h6 className="m-0 font-weight-bold text-primary">Pitches Table</h6>
   </div>
@@ -320,15 +331,6 @@ onClose = e => {
 </div>
 
 </div>
-            <button
-            onClick = {
-                e => {
-                    this.onClose(e)
-                }
-            }
-            >
-                Close
-            </button>
         </div>
         </div>)
     }
@@ -375,6 +377,15 @@ onClose = e => {
 
         
 <div className="card shadow mb-4">
+  <center>      <button
+                onClick = {
+                    e => {
+                        this.onClose(e)
+                    }
+                }
+                >
+                    Close
+                </button></center>
   <div className="card-header py-3">
     <h6 className="m-0 font-weight-bold text-primary">Recipes Table</h6>
   </div>
@@ -400,16 +411,7 @@ onClose = e => {
 </div>
 
 </div>
-            
-                <button
-                onClick = {
-                    e => {
-                        this.onClose(e)
-                    }
-                }
-                >
-                    Close
-                </button>
+          
             </div>
             </div>)
         }
@@ -454,9 +456,19 @@ onClose = e => {
                 <div>
                 <div>{this.props.children}</div>
                 <div>
-                <div className="container-fluid">        
+                <div className="container-fluid">    
 <div className="card shadow mb-4">
+
   <div className="card-header py-3">
+<center>        <button
+                    onClick = {
+                        e => {
+                            this.onClose(e)
+                        }
+                    }
+                    >
+                        Close
+                    </button></center>
     <h6 className="m-0 font-weight-bold text-primary">Users Table</h6>
   </div>
   <div className="card-body">
@@ -480,15 +492,7 @@ onClose = e => {
 
 </div>
               
-                    <button
-                    onClick = {
-                        e => {
-                            this.onClose(e)
-                        }
-                    }
-                    >
-                        Close
-                    </button>
+            
                 </div>
                 </div>)
             }
