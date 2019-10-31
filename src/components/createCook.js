@@ -171,7 +171,7 @@ onChange={ this.updateStateTitle} ref = "myInput"/>
 
 <div className="form-group">
 <label for="eventTitle">Recipe Description</label>
-<input type="text" className="form-control" placeholder="Enter Recipe Description" value={this.state.Recipe}
+<textarea type="text" className="form-control" placeholder="Enter Recipe Description" value={this.state.Recipe}
 onChange={ this.updateStateRecipe} ref = "myInput"/>
 
 </div>

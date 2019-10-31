@@ -13,24 +13,11 @@ export default class eventsExplore extends Component{
 
     constructor (props) {
       super(props)
-      this.handleChangeSearch = this.handleChangeSearch.bind(this)
       this.state ={
         event: [] ,
         meal: [] ,
-        pitch: [] ,
-        searchString: ''  
+        pitch: []
       }
-    }
-
-    handleChangeSearch(e) {
-      const condition = new RegExp(e.target.value, 'i');
-      const event = this.state.event.filter(name  => {
-        return condition.test(name );
-      });
-  
-      this.setState({
-        event
-      })
     }
 
 
@@ -98,12 +85,7 @@ export default class eventsExplore extends Component{
 
                 <hr/>
                 
-                    <input  
-                    type="text" 
-                    className="search__input search"
-                    placeholder="Search"
-                    onChange = { this.handleChangeSearch}
-                    />
+            
                         <h5 align="left">
                           Events 
                         </h5>

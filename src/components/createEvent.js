@@ -21,6 +21,8 @@ class createEvents extends Component {
         this.updateStateTitle = this.updateStateTitle.bind(this)
         this.updateStateLocation = this.updateStateLocation.bind(this)
         this.updateStateDescription = this.updateStateDescription.bind(this)
+        this.updateStateTime = this.updateStateTime.bind(this)
+        this.updateStateDate = this.updateStateDate.bind(this)
         this.updateStateOrganizer = this.updateStateOrganizer.bind(this)
         
         //Submit input
@@ -33,6 +35,8 @@ class createEvents extends Component {
             Title: '',
             Location: '',
             Description: '',
+            Time: '',
+            Date: '',
             Organizer: '',
             multerImage: DefaultImg,
             firebaseImage: DefaultImg,
@@ -82,6 +86,21 @@ class createEvents extends Component {
     }
 
 
+    updateStateDate(e) {
+        this.setState({
+            Date: e.target.value
+        }
+        )
+    }
+
+    updateStateTime(e) {
+        this.setState({
+            Time: e.target.value
+        }
+        )
+    }
+
+
     updateStateOrganizer(e) {
         this.setState({
             Organizer: e.target.value
@@ -99,6 +118,8 @@ class createEvents extends Component {
             Title: this.state.Title,
             Location: this.state.Location,
             Description: this.state.Description,
+            Date: this.state.Date,
+            Time: this.state.Time,
             Organizer: this.state.Organizer ,
         
 
@@ -115,13 +136,15 @@ class createEvents extends Component {
             Title: '',
             Location: '',
             Description: '',
+            Time: '' ,
+            Date: '' ,
             Organizer: '' 
          
         })
     }
 
     clearInput() {
-        this.setState({ Title: '', Location: '', Description: '', Organizer: '' })
+        this.setState({ Title: '', Location: '', Description: '', Date: '', Time: '', Organizer: '' })
         ReactDOM.findDOMNode(this.refs.myInput).focus()
     }
 
@@ -207,13 +230,47 @@ class createEvents extends Component {
                                             </div>
                                             <div className="form-group">
                                                 <label for="eventTitle">Event Description</label>
+                                                <textarea
+
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Enter Event Description"
+                                                value={this.state.Description}
+                                                onChange={this.updateStateDescription}
+                                                ref="myInput"
+
+                                                   />
+
+                                                  
+                                                                                                    
+                                            </div>
+
+                                            <div className="form-group">
+                                                <label for="eventTitle">Event Date</label>
                                                 <input
 
                                                 type="text"
                                                 className="form-control"
-                                                placeholder="Enter Event Location"
-                                                value={this.state.Description}
-                                                onChange={this.updateStateDescription}
+                                                placeholder="Enter Event Date"
+                                                value={this.state.Date}
+                                                onChange={this.updateStateDate}
+                                                ref="myInput"
+
+                                                   />
+
+                                                  
+                                                                                                    
+                                            </div>
+
+                                            <div className="form-group">
+                                                <label for="eventTitle">Event Time</label>
+                                                <input
+
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Enter Event Time"
+                                                value={this.state.Time}
+                                                onChange={this.updateStateTime}
                                                 ref="myInput"
 
                                                    />

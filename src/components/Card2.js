@@ -37,7 +37,7 @@ render(){
         {this.props.obj.Owner}
   </p>
   </Link>
-  <button className=" btn-circle">
+  <button className="text-white btn-circle" style={{backgroundColor: "red"}}>
   +
 </button>
 

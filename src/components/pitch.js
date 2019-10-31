@@ -11,24 +11,28 @@ class pitch extends Component{
         return(
             <div className="container-fluid bg-white">
                 <center>
-                <Link className="text-dark" to={'/createPitch'}>+ Add Pitch</Link>
+                <Link className="text-dark btn btn-warning m-1" to={'/createPitch'}>
+                    <i className="fa fa-plus"></i>
+
+                </Link>
                 </center>
 
-
-<div className="row">
+                <div className="row">
 
 <div className="col-md-6 mx-auto">
     
 <center>
-<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/Explore'}>Explore</Link>
-
-<Link className="text-dark p-1 m-1 btn border border-danger" to={'/Notification'}>Notifications</Link>
+<Link className="text-dark p-1 m-1 btn  border border-warning" to={'/Explore'}>Explore</Link>
 
 </center>
 
 
     </div>
+
 </div>
+
+
+
 
 <div className="row">
     <div  className="col ">
@@ -36,54 +40,60 @@ class pitch extends Component{
        Saved Pitches</h5> 
         <hr/>
         <section class="card-1">
-  <div class="card--content">
-     Zimbabwe 2019
-   Pitch1
-  
+        <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/pitch1.svg"/ >
+  <h6>Crazy Ideas</h6>
+   </center>
   </div>
-  <div class="card--content">
-   Zimbabwe 2019
-   Pitch1
-  
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/pitch1.svg"/ >
+  <h6>Crazy Ideas</h6>
+
+  <button className=" btn-circle text-white" style={{backgroundColor: "red"}}>
+  -
+</button>
+   </center>
   </div>
-  <div class="card--content">
-   Zimbabwe 2019
-   Pitch1
-  
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/pitch1.svg"/ >
+  <h6>Crazy Ideas</h6>
+   </center>
   </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/pitch1.svg"/ >
+  <h6>Crazy Ideas</h6>
+   </center>
   </div>
-  <div class="card--content">  Zimbabwe 2019
-   Pitch1
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/pitch1.svg"/ >
+  <h6>Crazy Ideas</h6>
+   </center>
   </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/pitch1.svg"/ >
+  <h6>Crazy Ideas</h6>
+   </center>
   </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
-  </div>
+
+
+
 </section>
 
 
@@ -95,89 +105,18 @@ class pitch extends Component{
     </div>
 
 
-    <div className="bg-light">
-    <div className="row">
-    <div className="col-md-3 ">
-          <div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p className="card-text">Paul Ruker
-</p>
-<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
-</div>
-
-</div>
-
-      
-</div>
-<div className="col-md-3">
-<div className="card" >
-<img className="card-img-top" src="img/login.jpg"/>
-<div className="card-body">
-<p className="card-text">Paul Ruker
-</p>
-<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
-</div>
-
-</div>
-
-      
-</div>
-
-<div className="col-md-3">
-<div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p className="card-text">Paul Ruker
-</p>
-<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
-</div>
-
-</div>
-
-      
-</div>
-<div className="col-md-3">
-<div className="card" >
-
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body">
-<p className="card-text">Paul Ruker
-</p>
-<p> "Flying Car" </p><p>Posted 10 Oct 2019</p>
-</div>
-
-</div>
-
-      
-</div>
-
-    </div>
-
-
-        
-        </div>
-    
     
 <hr/>
 
 <div className="row">
     <div className="col-12 col-md-9 mx-auto">
     <div className="p-1 m-1">
-<div className="card border border-white">
+<div className="card border ">
 
     <div className="card-body row">
-    <img  className=" col-12 col-sm-6 col-md-4 p-1 m-1 " src="img/pitch1.svg" />
+    <img  className=" col-12 col-sm-6 col-md-4  " src="img/pitch1.svg" />
       
- <div className="col-12 col-sm-6 col-md-4 p-1 m-1">
+ <div className="col-12 col-sm-6 col-md-8 ">
 
  <h5 >
          Find People To Share business ideas with
@@ -186,7 +125,7 @@ class pitch extends Component{
        Try it .It only takes a  minute to add a pitch.
        </p>
      
-       <Link className="btn btn-danger text-white text-center" to={'createEvent'}>
+       <Link className="btn btn-warning text-dark text-center" to={'createEvent'}>
             Add a Pitch!
         </Link>
  </div>

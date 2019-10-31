@@ -107,6 +107,8 @@ eventRoutes.route('/updateEvent/:id').post(function (req, res) {
         event.Title = req.body.Title;
         event.Location = req.body.Location;
         event.Description = req.body.Description;
+        event.Date = req.body.Date;
+        event.Time = req.body.Time;
         event.Organizer = req.body.Organizer;
      
 

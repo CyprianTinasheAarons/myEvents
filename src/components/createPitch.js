@@ -163,7 +163,7 @@ ref = "myInput"/>
 
 <div className="form-group">
 <label for="eventTitle">Pitch Description</label>
-<input type="text" className="form-control" placeholder="Enter Pitch Description" value={this.state.Description}
+<textarea type="text" className="form-control" placeholder="Enter Pitch Description" value={this.state.Description}
 onChange={ this.updateStateDescription} ref = "myInput"/>
 
 </div>

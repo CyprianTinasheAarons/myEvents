@@ -13,7 +13,9 @@ class cooking extends Component{
             <div className="container-fluid bg-white">
 
                 <center>
-<Link className="text-dark m-1 p-1" to={'/createCook'}>+ Add Meal</Link></center>
+<Link className="text-dark m-1 btn " to={'/createCook'} style={{backgroundColor: "orange"}}>
+<i className="fa fa-plus"></i>
+    </Link></center>
 
 
 <div className="row">
@@ -21,9 +23,7 @@ class cooking extends Component{
 <div className="col-md-6 mx-auto">
     
 <center>
-<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/Explore'}>Explore</Link>
-
-<Link className="text-dark p-1 m-1 btn border border-danger" to={'/Notification'}>Notifications</Link>
+<Link className="text-dark p-1 m-1 btn  border border-dark" to={'/Explore'}>Explore</Link>
 
 </center>
 
@@ -38,56 +38,60 @@ class cooking extends Component{
        Saved Recipes</h5> 
         <hr/>
         <section class="card-1">
-  <div class="card--content">
-     Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-   Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-   Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">  Zimbabwe 2019
-Recipe1
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-Recipe1
-  
-  </div>
-  <div class="card--content">
-  Zimbabwe 2019
-   Pitch1
-  
-  </div>
-</section>
+  <div class="card--content border p-2 ">
+   <center>
 
+<img className="card-img-top" src="img/food1.svg"/ >
+  <h6>Munandi Recipe</h6>
+   </center>
+  </div>
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/food1.svg"/ >
+  <h6>Munandi Recipe</h6>
+
+  <button className=" btn-circle text-white" style={{backgroundColor: "red"}}>
+  -
+</button>
+   </center>
+  </div>
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/food1.svg"/ >
+  <h6>Munandi Recipe</h6>
+   </center>
+  </div>
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/food1.svg"/ >
+  <h6>Munandi Recipe</h6>
+   </center>
+  </div>
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/food1.svg"/ >
+  <h6>Munandi Recipe</h6>
+   </center>
+  </div>
+
+  <div class="card--content border p-2 ">
+   <center>
+
+<img className="card-img-top" src="img/food1.svg"/ >
+  <h6>Munandi Recipe</h6>
+   </center>
+  </div>
+
+
+</section>
 
 
  
@@ -95,56 +99,6 @@ Recipe1
         </div>
     </div>
 
-    <div className="bg-light">
-
-    <div className="row">
-    <div className="col-12 col-md-6">
-    <div className="p-1 m-1">
-<div className="card border">
-
-    <div className="card-body row">
-    <img  className=" col-12 col-sm-6 col-md-4 p-1 m-1 " src="img/food1.svg" />
-      
- <div className="col-12 col-sm-6 col-md-4 p-1 m-1">
-
- <h5 >Meal Title
-       </h5>
-
- <p >Meal Summary
-       </p>
-       <p className=" ">
-       By <span>Cyprian</span>
-       </p>
-     
-       <Link className="btn btn-danger text-white text-center" to={'createEvent'}>
-            View Meal
-        </Link>
- </div>
- <div className="col-12 col-sm-6 col-md-3 p-1 m-1">
-   <ul className="list-unstyled">
-     <li> 10-07-19</li>
-     <li>Review stars</li>
-     <li>189 Likes</li>
-
-
-   </ul>
-
-   
-   </div>
-    
-    </div>
-
-</div>
-    
-
-</div>
-    </div>
-
-</div>
-
-
-
-    </div>
 
 
 
@@ -152,12 +106,12 @@ Recipe1
 <div className="row">
     <div className="col-12 col-md-9 mx-auto">
     <div className="p-1 m-1">
-<div className="card border border-white">
+<div className="card border ">
 
     <div className="card-body row">
-    <img  className=" col-12 col-sm-6 col-md-4 p-1 m-1 " src="img/food1.svg" />
+    <img  className=" col-12 col-sm-6 col-md-4 " src="img/food1.svg" />
       
- <div className="col-12 col-sm-6 col-md-4 p-1 m-1">
+ <div className="col-12 col-sm-6 col-md-8 ">
 
  <h5 >
          Find People To Share Recipes with
@@ -166,7 +120,7 @@ Recipe1
        Try it .It only takes a  minute to add a recipe.
        </p>
      
-       <Link className="btn btn-danger text-white text-center" to={'createEvent'}>
+       <Link className="btn text-dark text-center" to={'createEvent'} style={{backgroundColor:"orange"}}>
             Add a Meal!
         </Link>
  </div>

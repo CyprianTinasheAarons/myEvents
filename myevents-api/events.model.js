@@ -13,6 +13,12 @@ let Event =  new Schema (
         Description: {
             type: String
         },
+        Date: {
+            type: String
+        },
+        Time: {
+            type: String
+        },
         Organizer: {
             type: String
         } 

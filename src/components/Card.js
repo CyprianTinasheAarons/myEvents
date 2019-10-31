@@ -38,7 +38,7 @@ render(){
         {this.props.obj.Organizer}
   </p>
   </Link>
-  <button className=" btn-circle">
+  <button className="text-white btn-circle" style={{backgroundColor: "green"}}>
   +
 </button>
 
