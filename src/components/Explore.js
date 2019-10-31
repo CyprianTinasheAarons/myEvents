@@ -4,7 +4,7 @@ import axios from 'axios'
 import  Card from './Card'
 import  Card2 from './Card2'
 import  Card3 from './Card3'
-import Search from '../components/search' 
+
 
 
 
@@ -81,6 +81,14 @@ export default class eventsExplore extends Component{
                 <div align="center " className="p-1 ">
                     <h1 className="p-1 m-1 text-center">Events , Pitches and Recipes to excite your curiosity</h1>
                     <h5 className="p-1 m-1 text-center">Explore to find the right one for you.</h5>
+
+                    <div className="row">
+                      <div className="col-md-4 mx-auto ">
+                      <input  type="text" className="search__input search" placeholder="Search"/>
+               
+         
+                      </div>
+                    </div>
                 </div>
 
                 <hr/>

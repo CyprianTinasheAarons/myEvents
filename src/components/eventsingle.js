@@ -1,7 +1,7 @@
 import React , {Component } from 'react'
 import axios from 'axios'
 import ReactDOM from 'react-dom'
-
+import {Link} from 'react-router-dom'
 
 export default class eventSingle extends Component {
     constructor(props) {
@@ -11,6 +11,8 @@ export default class eventSingle extends Component {
             Title: '',
             Location: '',
             Description: '',
+            Date: '',
+            Time: '',
             Organizer: ''
        
         }
@@ -23,6 +25,8 @@ export default class eventSingle extends Component {
               Title: response.data.Title, 
               Location: response.data.Location,
               Description: response.data.Description ,
+              Date: response.data.Date ,
+              Time: response.data.Time ,
               Organizer: response.data.Organizer 
             })
         })
@@ -38,22 +42,44 @@ export default class eventSingle extends Component {
     render(){
         return (
             <div className="container-fluid bg-white">
-                  <div className="card" >
+                  <center>
+                <Link className=" text-white m-1 btn btn-danger" to={'/Explore'}>
+                <i className="fa fa-times"></i>
+                </Link>
+                </center>
+     <div className="row p-1">
 
-<div className="card-body" style={{margin: "0px" }}>
-<p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{this.state.Title}</p>
-    <p  className="event text-dark" style={{margin: "0px" , padding: "0px"}}>
-        {this.state.Location}</p>
-        
-   <p className="organizer text-dark">
-        {this.state.Organizer}
-  </p>
+         <div className="col-md-6">
+
+<img className="card-img-top " src="img/login.jpg"/ >
+
+
+         </div>
+
+         <div className="col-md-6" >
+         <h6 className="text-muted">{this.state.Date}</h6>  
+         <h1>   {this.state.Title}</h1>
+         <p>Organized by:  <span className="text-primary">{this.state.Organizer}</span>
+ </p>
+
+ 
+       <p>Location:<span className="text-primary">{this.state.Location}</span></p>
+
+        <p> Time:<span className="text-primary">{this.state.Time}</span></p>
+ 
+
+        <hr/>
+   <h6><strong>Description</strong></h6>
+   <p className="p-2 m-2"> {this.state.Description}
+</p>
+
+    
+         </div>
+         </div>  
 
 
 
-</div>
 
-</div>
 </div>
  )
     }

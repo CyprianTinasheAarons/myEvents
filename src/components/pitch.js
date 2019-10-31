@@ -10,34 +10,25 @@ class pitch extends Component{
 
         return(
             <div className="container-fluid bg-white">
-                <center>
-                <Link className="text-dark btn btn-warning m-1" to={'/createPitch'}>
-                    <i className="fa fa-plus"></i>
-
-                </Link>
-                </center>
-
-                <div className="row">
-
-<div className="col-md-6 mx-auto">
-    
-<center>
-<Link className="text-dark p-1 m-1 btn  border border-warning" to={'/Explore'}>Explore</Link>
-
-</center>
-
-
-    </div>
-
-</div>
-
-
+   
 
 
 <div className="row">
     <div  className="col ">
-       <h5 className="text-dark p-1">
-       Saved Pitches</h5> 
+    <center>
+       <p>         <Link className="text-dark btn btn-warning m-1" to={'/createPitch'}>
+                    <i className="fa fa-plus"></i>
+
+                </Link>
+
+<Link className="text-dark p-1 m-1 btn  border border-warning" to={'/Explore'}>Explore</Link>
+
+
+
+<h5 className="text-dark p-1">
+      <strong> Saved Pitches</strong></h5> 
+      </p>
+                </center>
         <hr/>
         <section class="card-1">
         <div class="card--content border p-2 ">

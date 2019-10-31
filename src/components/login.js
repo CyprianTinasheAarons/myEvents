@@ -5,9 +5,9 @@ import {Link } from 'react-router-dom'
 class Login extends Component{
     render(){
         return(
-            <div className="container-fluid bg-white "  >
+            <div className="container-fluid bg-white " style={{backgroundImage:"url(img/login.jpg)" ,height:"100%" ,width:"auto" ,backgroundSize:"contain"}}  >
                 
-                <div className="row"  style={{backgroundImage:"url(img/login.jpg)" ,height:"100%" ,width:"auto" ,backgroundSize:"contain"}}    >
+                <div className="row"  >
                               <div className="col-md-3 mx-auto m-2 p-1">
                                   <div className="card m-1 p-1" >
                                       <div className="card-body">

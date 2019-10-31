@@ -16,7 +16,7 @@ import Email from './components/email'
 import About from './components/about'
 import Events from './components/events'
 import Explore from './components/Explore' 
-import Search from './components/search' 
+
 import Notification from './components/Notification' 
 import Cooking from './components/cooking'
 import Pitch from './components/pitch'
@@ -48,21 +48,21 @@ class App extends Component{
    <img src="img/logo.jpg"  style={{height: "50px"}}/>
     </Navbar.Brand>
 
-                   <input  type="text" className="search__input search" placeholder="Search"/>
-               
          
   
 
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
+    <Nav className="ml-auto">
  
-          <Nav.Link   ><Link className=" p-1 m-1 red-color " to={'/'} >Home</Link></Nav.Link>
+          <Nav.Link   ><Link className=" p-1 m-1 black-color " to={'/'} >Home</Link></Nav.Link>
       
           <Nav.Link ><Link className=" p-1 m-1 red-color" to={'/Events'} >MyEvents</Link></Nav.Link>
           <Nav.Link  ><Link className=" p-1 m-1 text-dark" to={'/Cooking'} > HomeCooking</Link></Nav.Link> 
           <Nav.Link ><Link  className=" p-1 m-1 text-warning" to={'/Pitch'} >PitchPlace</Link></Nav.Link>
-          <Nav.Link  ><Link className=" p-1 m-1 black-color" to={'/About'} >About</Link></Nav.Link>
+          <Nav.Link ><Link  className=" p-1 m-1 black-color" to={'/Explore'} >Explore</Link></Nav.Link>
+    
+    
 
        { this.props.auth.isAuthenticated  ?
              <Nav.Link ><Link   className=" p-1 m-1 black-color" to={'/Logout'} >Logout</Link></Nav.Link>
@@ -94,7 +94,7 @@ class App extends Component{
 
           <Route exact path='/Events' component ={Events}/>
           <Route exact path='/Explore' component ={Explore}/>
-          <Route exact path='/Search' component ={Search}/>
+         
           <Route exact path='/Notification' component ={Notification}/>
           <Route exact path='/Cooking' component ={Cooking}/>
         

@@ -12,30 +12,22 @@ class cooking extends Component{
         return(
             <div className="container-fluid bg-white">
 
-                <center>
-<Link className="text-dark m-1 btn " to={'/createCook'} style={{backgroundColor: "orange"}}>
-<i className="fa fa-plus"></i>
-    </Link></center>
-
-
-<div className="row">
-
-<div className="col-md-6 mx-auto">
-    
-<center>
-<Link className="text-dark p-1 m-1 btn  border border-dark" to={'/Explore'}>Explore</Link>
-
-</center>
-
-
-    </div>
-
-</div>
-
 <div className="row">
     <div  className="col ">
-       <h5 className="text-dark p-1">
-       Saved Recipes</h5> 
+        <center>
+      <p> 
+      
+                   
+                    <Link className="text-dark m-1 btn " to={'/createCook'} style={{backgroundColor: "orange"}}>
+<i className="fa fa-plus"></i>
+    </Link>
+<Link className="text-dark p-1 m-1 btn  border border-dark" to={'/Explore'}>Explore</Link>
+<h5 className="text-dark p-1">
+    <strong>Saved Recipes</strong>
+       </h5> 
+
+                    </p>
+                    </center>
         <hr/>
         <section class="card-1">
   <div class="card--content border p-2 ">
@@ -121,7 +113,7 @@ class cooking extends Component{
        </p>
      
        <Link className="btn text-dark text-center" to={'createEvent'} style={{backgroundColor:"orange"}}>
-            Add a Meal!
+         <h6><strong>Add a Meal!</strong></h6>
         </Link>
  </div>
        

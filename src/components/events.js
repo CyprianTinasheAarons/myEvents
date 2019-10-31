@@ -22,35 +22,23 @@ class events extends Component{
 
         return(
             <div className="container-fluid bg-white">
-                <center>
+            
+<div className="row ">
+    <div  className="col ">
+    <center>
+                  <p>
                 <Link className=" text-white btn btn-danger m-1" to={'/createEvent'}>
                 <i className="fa fa-plus"></i>
                 </Link>
+                <Link className="text-dark p-1 m-1 btn  border border-danger" to={'/Explore'}>Explore</Link>
+                <h5 className="text-dark p-1">
+                  <strong>Attending</strong>
+       </h5> 
+                </p>
+
                 </center>
-  
 
-
-<div className="row">
-
-<div className="col-md-6 mx-auto">
-    
-<center>
-<Link className="text-dark p-1 m-1 btn  border border-danger" to={'/Explore'}>Explore</Link>
-
-
-
-</center>
-
-
-
-    </div>
-
-</div>
-
-<div className="row ">
-    <div  className="col ">
-       <h5 className="text-dark p-1">
-       Attending</h5> 
+      
         <hr/>
 
         <section class="card-1">
