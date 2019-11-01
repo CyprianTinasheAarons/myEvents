@@ -50,7 +50,6 @@ eventRoutes.route("/imageUpload")
             .catch((err) => next(err));
     });
 
-
 eventRoutes.route('/addEvent').post((req, res )=> {
     // let event = new Event(req.body)
     let event = new Event(

@@ -188,9 +188,7 @@ onChange={ this.updateStateOwner} ref = "myInput"/>
            <div className="col-md-4 p-1 my-1" id="preview">
                     <div className="card" >
                         <center><p className="text-muted p-1 m-1"> Pitch Preview</p></center>
-                        <hr/>
 
-<hr/>
 <div className="card-body p-1 m-1">
 <h4 className="card-title">
     {this.state.Title}

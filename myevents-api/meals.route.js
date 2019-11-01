@@ -75,6 +75,14 @@ mealsRoutes.route('/').get(function (req, res) {
   });
 });
 
+// Single Meal Route
+mealsRoutes.route('/singleMeal/:id').get(function (req, res) {
+  let id = req.params.id;
+  Meal.findById(id, function (err, meal){
+      res.json(meal);
+  });
+});
+
 // Defined edit route
 mealsRoutes.route('/editMeal/:id').get(function (req, res) {
   let id = req.params.id;

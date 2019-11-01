@@ -2,12 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 let Event =  new Schema (
-    {
-        
+    {   
         Title: {
-            type: String
-            ,
-            required: true
+            type: String,
+            required: true,
+            
         },
         Location: {
             type: String
@@ -35,7 +34,6 @@ let Event =  new Schema (
             required: true
             
         } 
-      
 
     } ,
     {

@@ -284,7 +284,7 @@ class createEvents extends Component {
                                                     onChange={this.updateStateOrganizer} ref="myInput" />
 
                                             </div>
-                                            <input type="submit" className="btn btn-primary p-1 m-1" />
+                                            <button type="submit" className="btn btn-primary p-1 m-1" >Publish </button>
 
                                             <button onClick={this.clearInput} className="btn btn-danger p-1 m-1">Clear</button>
                                             </form>

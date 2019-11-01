@@ -30,6 +30,8 @@ import createEvent from './components/createEvent'
 import createPitch from './components/createPitch' 
 
 import eventSingle from './components/eventsingle' 
+import pitchSingle from './components/pitchsingle' 
+import mealSingle from './components/mealsingle' 
 
 import admin from './components/admin/admin'
 
@@ -70,7 +72,7 @@ class App extends Component{
           <Nav.Link ><Link   className=" p-1 m-1 black-color" to={'/Login'} >Login</Link></Nav.Link>
   
          }
-           
+        
           <Nav.Link  ><Link  className=" p-1 m-1 black-color" to={'/Signup'} >Signup</Link></Nav.Link>
 
     
@@ -105,6 +107,8 @@ class App extends Component{
           <Route exact path='/createPitch' component ={createPitch}/>
 
           <Route exact path='/eventSingle/:id' component ={eventSingle}/>
+          <Route exact path='/mealSingle/:id' component ={mealSingle}/>
+          <Route exact path='/pitchSingle/:id' component ={pitchSingle}/>
 
           <Route exact path='/editEvent/:id' component={ editEvent } />
 

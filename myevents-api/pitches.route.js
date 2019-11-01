@@ -76,6 +76,14 @@ pitchesRoutes.route('/').get(function (req, res) {
   });
 });
 
+// Pitches Route
+pitchesRoutes.route('/singlePitch/:id').get(function (req, res) {
+  let id = req.params.id;
+  Pitch.findById(id, function (err,pitch){
+      res.json(pitch);
+  });
+});
+
 // Defined edit route
 pitchesRoutes.route('/editPitch/:id').get(function (req, res) {
   let id = req.params.id;

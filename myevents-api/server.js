@@ -11,6 +11,7 @@ const eventsRoute = require('./events.route')
 const usersRoute = require('./users.route')
 const pitchesRoute = require('./pitches.route')
 const mealsRoute = require('./meals.route')
+const imagesRoute = require('./images.route')
 
 const passport = require("passport")
 
@@ -38,6 +39,7 @@ app.use('/events', eventsRoute)
 app.use('/meals', mealsRoute)
 app.use('/pitches',pitchesRoute)
 app.use('/users', usersRoute)
+app.use('/images', imagesRoute)
 
 app.use(formData.parse())
 

@@ -1,40 +1,61 @@
 import React , {Component} from 'react'
 import {Navbar, Nav ,NavDropdown ,Form ,FormControl , Button  } from 'react-bootstrap' 
 import axios from 'axios'
-import  Card from './Card'
-import  Card2 from './Card2'
-import  Card3 from './Card3'
+import SearchInput, {createFilter} from 'react-search-input'
+import { Link } from 'react-router-dom'
 
+const KEYS_TO_FILTERS = ['Title', 'Location' ,'Organizer' , 'Owner' , 'Chef' ]
 
-
-
+const searchCss = {
+  fontFamily: "inherit",
+  fontSize: "15px",
+  color: "inherit",
+  backgroundColor:"#f4f2f2",
+  border: "none",
+  padding:".7rem 2rem",
+  borderRadius:"100px",
+  width: "100%",
+  marginRight: "10px"
+}
 
 export default class eventsExplore extends Component{
 
     constructor (props) {
       super(props)
       this.state ={
-        event: [] ,
-        meal: [] ,
-        pitch: []
+        events: [] ,
+        meals: [] ,
+        pitches: [] ,
+  
+        searchTerm: ''
       }
+      this.searchUpdated = this.searchUpdated.bind(this)
     }
 
 
     componentDidMount(){
    
-      axios.get('http://localhost:4000/events')
+          axios.get('http://localhost:4000/events')
+              .then(response =>{
+                  this.setState({events: response.data})
+              })
+              .catch(function(error){
+                  console.log(error)
+              })
+
+          axios.get('http://localhost:4000/images')
           .then(response =>{
-              this.setState({event: response.data})
+              this.setState({images: response.data})
           })
           .catch(function(error){
               console.log(error)
           })
 
+
       
           axios.get('http://localhost:4000/meals')
           .then(response =>{
-              this.setState({meal: response.data})
+              this.setState({meals: response.data})
           })
           .catch(function(error){
               console.log(error)
@@ -43,7 +64,7 @@ export default class eventsExplore extends Component{
 
           axios.get('http://localhost:4000/pitches')
           .then(response =>{
-              this.setState({pitch: response.data})
+              this.setState({pitches: response.data})
           })
           .catch(function(error){
               console.log(error)
@@ -51,30 +72,20 @@ export default class eventsExplore extends Component{
 
     }
 
-    cardEvent (){
-        return this.state.event.map(function(object, i){
-            return <Card obj={object} key={i} />
-        })
-    }
 
-    cardMeal (){
-      return this.state.meal.map(function(object, i){
-          return <Card3 obj={object} key={i} />
-      })
-    }
-
-    cardPitch (){
-        return this.state.pitch.map(function(object, i){
-            return <Card2 obj={object} key={i} />
-        })
-    }
+ 
 
     handleChange(e) {
               return this.setState({ searchString: e.target.value})
     }
 
     render(){
-      
+      const filteredEvents = this.state.events.filter(createFilter(this.state.searchTerm ,KEYS_TO_FILTERS))
+ 
+      const filteredPitches = this.state.pitches.filter(createFilter(this.state.searchTerm ,KEYS_TO_FILTERS))
+
+      const filteredMeals = this.state.meals.filter(createFilter(this.state.searchTerm ,KEYS_TO_FILTERS))
+
         return(
 
             <div className="container-fluid bg-white">
@@ -84,8 +95,9 @@ export default class eventsExplore extends Component{
 
                     <div className="row">
                       <div className="col-md-4 mx-auto ">
-                      <input  type="text" className="search__input search" placeholder="Search"/>
-               
+                   
+
+      <SearchInput type="text"  placeholder="Search" className="search-input  search" onChange={this.searchUpdated}  style={searchCss}/>
          
                       </div>
                     </div>
@@ -99,11 +111,64 @@ export default class eventsExplore extends Component{
                         </h5>
                     
                         <section class="card-1 ">
-                        
-                       
-                          {this.cardEvent()}
-                          
+                        {filteredEvents.map( events => {
+          return (
+           
+  <div class="card--content" key={events._id} >
+    
+  <div className="card " >
+<div className="text-image">
+<img className="card-img-top" src="img/login.jpg"/ >
+<div class="rate ">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+    <p className="text-white ">200</p>
 
+  </div>
+<button className="text-white btn " style={{backgroundColor: "red"}}>
+  <i class="fa fa-plus " aria-hidden="true"></i>
+
+</button>
+</div>
+
+
+<div className="card-body text-center" style={{margin: "0px" }}>
+
+
+  <Link to={'/eventsingle/' +events._id}> 
+<small><p className="name text-dark" style={{margin: "0px" , padding: "0px"}}><strong>{events.Title}</strong></p>
+<p  className="event text-dark" style={{margin: "0px" , padding: "0px"}}><i class="fa fa-map-marker mr-2"></i>
+
+{events.Location}</p>
+
+<p className="organizer text-muted">
+<i class="fa fa-user mr-2" aria-hidden="true"></i>
+{events.Organizer}
+</p>
+</small>
+</Link>
+
+</div>
+
+</div>
+
+ </div>
+
+                
+          
+                          
+          )
+        })}
+                        
+                
 </section>
 
 
@@ -116,8 +181,53 @@ export default class eventsExplore extends Component{
                         </h5>
                      
                         <section class="card-1">
+{filteredPitches.map( pitches => {
+  return (
+   
+<div class="card--content" key={pitches._id} >
 
-                          {this.cardPitch()}
+<div className="card" >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+<div className="card-body" style={{margin: "0px" }}>
+<div class="rate">
+<input type="radio" id="star5" name="rate" value="5" />
+<label for="star5" title="text">5 stars</label>
+<input type="radio" id="star4" name="rate" value="4" />
+<label for="star4" title="text">4 stars</label>
+<input type="radio" id="star3" name="rate" value="3" />
+<label for="star3" title="text">3 stars</label>
+<input type="radio" id="star2" name="rate" value="2" />
+<label for="star2" title="text">2 stars</label>
+<input type="radio" id="star1" name="rate" value="1" />
+<label for="star1" title="text">1 star</label>
+</div>
+<Link to={'/pitchsingle/' +pitches._id}> 
+<p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{pitches.Title}</p>
+
+
+<p className="organizer text-dark">
+{pitches.Owner}
+</p>
+</Link>
+<button className="text-white btn-circle" style={{backgroundColor: "red"}}>
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+        
+  
+                  
+  )
+})}
+             
  
 </section>
 
@@ -130,7 +240,54 @@ export default class eventsExplore extends Component{
                      
                         <section class="card-1">
 
-                          {this.cardMeal()}
+                        {filteredMeals.map(meals => {
+  return (
+   
+<div class="card--content" key={meals._id} >
+
+<div className="card" >
+
+
+<img className="card-img-top" src="img/login.jpg"/ >
+
+<div className="card-body" style={{margin: "0px" }}>
+<div class="rate">
+<input type="radio" id="star5" name="rate" value="5" />
+<label for="star5" title="text">5 stars</label>
+<input type="radio" id="star4" name="rate" value="4" />
+<label for="star4" title="text">4 stars</label>
+<input type="radio" id="star3" name="rate" value="3" />
+<label for="star3" title="text">3 stars</label>
+<input type="radio" id="star2" name="rate" value="2" />
+<label for="star2" title="text">2 stars</label>
+<input type="radio" id="star1" name="rate" value="1" />
+<label for="star1" title="text">1 star</label>
+</div>
+<Link to={'/mealsingle/' +meals._id}> 
+<p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{meals.Title}</p>
+
+
+<p className="organizer text-dark">
+{meals.Chef}
+</p>
+</Link>
+<button className="text-white btn-circle" style={{backgroundColor: "red"}}>
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+        
+  
+                  
+  )
+})}
+             
+ 
  
 </section>
 
@@ -258,4 +415,8 @@ Like and review.
         
         )
     }
+
+    searchUpdated (term) {
+    this.setState({searchTerm: term})
+  }
 }
