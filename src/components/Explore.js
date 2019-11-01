@@ -91,7 +91,7 @@ export default class eventsExplore extends Component{
             <div className="container-fluid bg-white">
                 <div align="center " className="p-1 ">
                     <h1 className="p-1 m-1 text-center">Events , Pitches and Recipes to excite your curiosity</h1>
-                    <h5 className="p-1 m-1 text-center">Explore to find the right one for you.</h5>
+              <small>      <h5 className="p-1 m-1 text-center">Explore to find the right one for you.</h5></small>
 
                     <div className="row">
                       <div className="col-md-4 mx-auto ">
@@ -107,7 +107,7 @@ export default class eventsExplore extends Component{
                 
             
                         <h5 align="left">
-                          Events 
+                        <strong>  Events </strong>
                         </h5>
                     
                         <section class="card-1 ">
@@ -118,7 +118,7 @@ export default class eventsExplore extends Component{
     
   <div className="card " >
 <div className="text-image">
-<img className="card-img-top" src="img/login.jpg"/ >
+<img className="card-img-top" src="img/login.jpg" / >
 <div class="rate ">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
@@ -133,7 +133,7 @@ export default class eventsExplore extends Component{
     <p className="text-white ">200</p>
 
   </div>
-<button className="text-white btn " style={{backgroundColor: "red"}}>
+<button className="text-white btn btn-danger " >
   <i class="fa fa-plus " aria-hidden="true"></i>
 
 </button>
@@ -177,54 +177,64 @@ export default class eventsExplore extends Component{
 
   <div>
                         <h5 align="left">
-                            Pitches
+                            <strong>Pitches</strong>
                         </h5>
                      
                         <section class="card-1">
 {filteredPitches.map( pitches => {
   return (
-   
-<div class="card--content" key={pitches._id} >
+    <div class="card--content" key={pitches._id} >
+    
+  <div className="card " >
+<div className="text-image">
+<img className="card-img-top" src="img/login.jpg" / >
+<div class="rate ">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+    <p className="text-white ">200</p>
 
-<div className="card" >
+  </div>
+<button className="text-white btn  btn-warning">
+  <i class="fa fa-plus " aria-hidden="true"></i>
 
-
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body" style={{margin: "0px" }}>
-<div class="rate">
-<input type="radio" id="star5" name="rate" value="5" />
-<label for="star5" title="text">5 stars</label>
-<input type="radio" id="star4" name="rate" value="4" />
-<label for="star4" title="text">4 stars</label>
-<input type="radio" id="star3" name="rate" value="3" />
-<label for="star3" title="text">3 stars</label>
-<input type="radio" id="star2" name="rate" value="2" />
-<label for="star2" title="text">2 stars</label>
-<input type="radio" id="star1" name="rate" value="1" />
-<label for="star1" title="text">1 star</label>
+</button>
 </div>
+
+
+<div className="card-body text-center" style={{margin: "0px" }}>
+
+
 <Link to={'/pitchsingle/' +pitches._id}> 
-<p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{pitches.Title}</p>
+
+<small>
+<p className="name text-dark" style={{margin: "0px" , padding: "0px"}}><strong>{pitches.Title}</strong></p>
 
 
-<p className="organizer text-dark">
+<p className="organizer text-muted">
+<i class="fa fa-user mr-2" aria-hidden="true"></i>
 {pitches.Owner}
 </p>
+</small>
 </Link>
-<button className="text-white btn-circle" style={{backgroundColor: "red"}}>
-+
-</button>
+
 
 </div>
 
 </div>
 
-</div>
+ </div>
 
-        
-  
-                  
+                
+   
+           
   )
 })}
              
@@ -235,55 +245,65 @@ export default class eventsExplore extends Component{
                     </div>
   <div>
                         <h5 align="left">
-                            Meals
+                            <strong>Meals</strong>
                         </h5>
                      
                         <section class="card-1">
 
                         {filteredMeals.map(meals => {
   return (
-   
-<div class="card--content" key={meals._id} >
-
-<div className="card" >
 
 
-<img className="card-img-top" src="img/login.jpg"/ >
-
-<div className="card-body" style={{margin: "0px" }}>
-<div class="rate">
-<input type="radio" id="star5" name="rate" value="5" />
-<label for="star5" title="text">5 stars</label>
-<input type="radio" id="star4" name="rate" value="4" />
-<label for="star4" title="text">4 stars</label>
-<input type="radio" id="star3" name="rate" value="3" />
-<label for="star3" title="text">3 stars</label>
-<input type="radio" id="star2" name="rate" value="2" />
-<label for="star2" title="text">2 stars</label>
-<input type="radio" id="star1" name="rate" value="1" />
-<label for="star1" title="text">1 star</label>
-</div>
-<Link to={'/mealsingle/' +meals._id}> 
-<p className="name text-dark" style={{margin: "0px" , padding: "0px"}}>{meals.Title}</p>
-
-
-<p className="organizer text-dark">
-{meals.Chef}
-</p>
-</Link>
-<button className="text-white btn-circle" style={{backgroundColor: "red"}}>
-+
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-        
+    <div class="card--content" key={meals._id} >
+    
+    <div className="card " >
+  <div className="text-image">
+  <img className="card-img-top" src="img/login.jpg" / >
+  <div class="rate ">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text">1 star</label>
+      <p className="text-white ">200</p>
   
-                  
+    </div>
+  <button className="text-white btn  btn-dark">
+    <i class="fa fa-plus " aria-hidden="true"></i>
+  
+  </button>
+  </div>
+  
+  
+  <div className="card-body text-center" style={{margin: "0px" }}>
+  
+  
+  <Link to={'/pitchsingle/' +meals._id}> 
+  
+  <small>
+  <p className="name text-dark" style={{margin: "0px" , padding: "0px"}}><strong>{meals.Title}</strong></p>
+  
+  
+  <p className="organizer text-muted">
+  <i class="fa fa-user mr-2" aria-hidden="true"></i>
+  {meals.Chef}
+  </p>
+  </small>
+  </Link>
+  
+  
+  </div>
+  
+  </div>
+  
+   </div>
+  
+               
   )
 })}
              
@@ -297,7 +317,7 @@ export default class eventsExplore extends Component{
 
                     <div>
                         <h5 align="left">
-                            Categories
+                          <strong>  Categories</strong>
                         </h5>
                      
                         <section class="card-1">
